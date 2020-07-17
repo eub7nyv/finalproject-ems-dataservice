@@ -2,7 +2,7 @@
 
 ## User Story/Goal
 1. Build an enterprise message system to streamline data publishing and consuming 
-2. Build out an Centralize data service framework by leveraging message system to stream data and cloud and provide centralized service data 
+2. Build out data service framework by leveraging message system to stream data into cloud and provide centralized data service.
 
 ## Issue Statement:  
 ### Enterprise message system to 
