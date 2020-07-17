@@ -1,7 +1,7 @@
 # finalproject-ems-dataservice
 
 ## User Story/Goal
-1. Build an enterprise message system to streamline data publishing and comsuming 
+1. Build an enterprise message system to streamline data publishing and consuming 
 2. Build out an Centralize data service framework by leveraging message system to stream data and cloud and provide centralized service data 
 
 ## Issue Statement:  
@@ -42,4 +42,4 @@ Contain documents to the project.
 
 # Project Planning
 1. 8:00-8:30 scrum/resolution call
-2. Epic/tasks are setup under this repo's project tab.
+2. Epic/tasks are setup and tracked under this repo's projects tab.
