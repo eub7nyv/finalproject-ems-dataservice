@@ -14,7 +14,7 @@
     1.1 build ETL load data 
     1.2 lookup data 
     1.3 Persist data in different system
-2.  Replace Out date Repository  ( ie MARRSS etc.)
+2.  Replace Out date Repository  ( ie MARRS etc.)
 3.  Provide a cloud solution to centralized reference data service or other service
 
 ## Epic/User Story: 
@@ -33,9 +33,9 @@ TDD, Functional Programming, DevOps, XP, Pair Programming , CPI,
 ## Stretch Goal: Topic2 from event trigger to save as file
 
 ## Strategy Goal: 
-Build a pattern/framework to provide centralized messaging system and provider master/reference data service. 
+Build a framework & structure to provide centralized messaging system and provide master/reference data service. 
 This message queue can be used for application event queue. 
-And it can also be externed to other common data such as  NCPDP,  Medical Code , Provider search & lookup as centralized data service offering.
+And it can also be externed to other common data such as  NCPDP,  Medical Code , Provide search & lookup as centralized data service offering.
 
 # doc folder 
 Contain documents to the project.
