@@ -1,5 +1,6 @@
 [
 {"Filepath":"../incoming_files/","Filepattern":"drgdata*.txt","Topic":"DRGDATA"},
 {"Filepath":"../incoming_files/","Filepattern":"prsdata*.txt","Topic":"PRSDATA"},
-{"Filepath":"../incoming_files/","Filepattern":"payordata*.txt","Topic":"PAYORDATA"}
+{"Filepath":"../incoming_files/","Filepattern":"payer*.txt","Topic":"PAYERDATA"},
+{"Filepath":"../incoming_files/","Filepattern":"plan*.txt","Topic":"PLANDATA"}
 ]
