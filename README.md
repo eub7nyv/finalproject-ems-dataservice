@@ -49,6 +49,7 @@ Contain documents related to the project.
 2. Create folder for each service 
 3. Deploy locally as container to ensure it works first
 4. Integrate as needed in various stage
-5. Create Brand for each service and commit. 
+5. Create Brand for each service 
    5.1 Commit frequently as possible
    5.2 Merge when a function, test is working or reach certain stage
+6. TDD
