@@ -1,0 +1,5 @@
+[
+{"Filepath":"../incoming_files/","Filepattern":"drgdata*.txt","Topic":"DRGDATA"},
+{"Filepath":"../incoming_files/","Filepattern":"prsdata*.txt","Topic":"PRSDATA"},
+{"Filepath":"../incoming_files/","Filepattern":"payordata*.txt","Topic":"PAYORDATA"}
+]
