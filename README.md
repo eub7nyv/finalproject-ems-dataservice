@@ -42,7 +42,7 @@ Contain documents related to the project.
 
 # Project Planning
 1. 8:00-8:30 scrum/resolution call daily
-2. Epic/tasks/backlog etc. are setup and tracked under this repo's projects tab.
+2. Epic/tasks/assignment/stage are setup and tracked under this repo's projects tab.
 
 # Developmemt Strategy
 1. Will use this project as single source for project & version
