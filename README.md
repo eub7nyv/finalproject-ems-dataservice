@@ -38,8 +38,18 @@ This message queue can be used for application event queue.
 And it can also be externed to other common data such as  NCPDP,  Medical Code , Provide search & lookup as centralized data service offering.
 
 # doc folder 
-Contain documents to the project.
+Contain documents related to the project.
 
 # Project Planning
-1. 8:00-8:30 scrum/resolution call
-2. Epic/tasks are setup and tracked under this repo's projects tab.
+1. 8:00-8:30 scrum/resolution call daily
+2. Epic/tasks/assignment/stage are setup and tracked under this repo's projects tab.
+
+# Developmemt Strategy
+1. Will use this project as single source for project & version
+2. Create folder for each service 
+3. Deploy locally as container to ensure it works first
+4. Integrate as needed in various stage
+5. Create Brand for each service 
+   5.1 Commit frequently as possible
+   5.2 Merge when a function, test is working or reach certain stage
+6. TDD
