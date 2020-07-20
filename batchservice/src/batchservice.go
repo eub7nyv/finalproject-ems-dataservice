@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -137,17 +138,17 @@ func backupfile(file string) error {
 	return err
 }
 
-func main() {
-	InfoLogger.Println("starting the Main method")
+func loadconfigfile() ([]Config, error) {
+	InfoLogger.Println("starting the loadconfigfile method")
 	// read config file and unmarshal values
+	var config []Config
 	byteValue, err := readconfigandreturnbytevalue()
 	if err != nil {
 		fmt.Println(err)
 		ErrorLogger.Println(err)
-		return
+		return config, err
 	}
 
-	var config []Config
 	json.Unmarshal(byteValue, &config)
 
 	fmt.Printf("\nFull list of config values: %+v", config)
@@ -161,12 +162,24 @@ func main() {
 		if prop.Filepath == "" || prop.Filepattern == "" || prop.Topic == "" {
 			fmt.Printf("\nInvalid Config file .. missing values")
 			ErrorLogger.Printf("Invalid Config file .. missing values")
-			return
+			return config, errors.New("Invalid Config file .. missing values")
 		}
 	}
 
 	InfoLogger.Println("End loading the config.json values ..")
+	InfoLogger.Println("exiting the loadconfigfile method")
+	return config, err
+}
 
+func main() {
+	InfoLogger.Println("starting the Main method")
+	// read config file and unmarshal values
+	config, err := loadconfigfile()
+	if err != nil {
+		fmt.Println(err)
+		ErrorLogger.Println(err)
+		return
+	}
 	//if config len > 0 and config file has valid values then proceed otherwise exit
 	if len(config) > 0 {
 		// Add infinite loop and few secs of sleep to keep scanning continously and to process new files as they become available
@@ -182,11 +195,12 @@ func main() {
 					return
 				}
 			}
-			fmt.Printf("\nSleeping for 5 secs")
+			fmt.Printf("\nSleeping for " + strconv.Itoa(sleepTime) + " secs")
 			InfoLogger.Printf("Sleeping for " + strconv.Itoa(sleepTime) + " secs")
 			time.Sleep(sleepTime * time.Second)
 		}
+	} else {
+		InfoLogger.Println("No config entries found for files to scan and proocess.")
 	}
-
-	InfoLogger.Println("exiting the Main method successfully")
+	InfoLogger.Println("exiting the Main method..")
 }
