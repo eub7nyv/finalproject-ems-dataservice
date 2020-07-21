@@ -2,11 +2,13 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -171,7 +173,26 @@ func loadconfigfile() ([]Config, error) {
 	return config, err
 }
 
+func httpPost() {
+	//??? implement proper error handling
+	fmt.Println("Starting the application...")
+
+	jsonData := map[string]string{"topicName": "Nic", "incomingMessage": "Raboy"}
+	jsonValue, _ := json.Marshal(jsonData)
+	response, err := http.Post("http://httpbin1.org/post", "application/json", bytes.NewBuffer(jsonValue))
+	if err != nil {
+		fmt.Printf("The HTTP request failed with error %s\n", err)
+	} else {
+		defer response.Body.Close()
+		data, _ := ioutil.ReadAll(response.Body)
+		fmt.Println("response: " + string(data))
+	}
+	fmt.Println("Terminating the application...")
+}
+
 func main() {
+	httpPost() //??? remove after testing
+
 	InfoLogger.Println("starting the Main method")
 	// read config file and unmarshal values
 	config, err := loadconfigfile()
