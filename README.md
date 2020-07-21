@@ -44,7 +44,7 @@ Contain documents related to the project.
 1. 8:00-8:30 scrum/resolution call daily
 2. Epic/tasks/assignment/stage are setup and tracked under this repo's projects tab.
 
-# Developmemt Strategy
+# Development Strategy
 1. Will use this project as single source for project & version
 2. Create folder for each service 
 3. Deploy locally as container to ensure it works first
