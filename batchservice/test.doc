@@ -2,4 +2,6 @@ Docker Commands to build, deploy and run Go App container:
 docker build -t mygobatchserviceapp .
 docker run --rm -it mygobatchserviceapp ——>run in foreground / Cntrl C to stop program
 docker run -d --rm -it mygobatchserviceapp  ——>run in background
-docker exec -it 1f12e7deeb47  /bin/sh   --> replace the container id
+docker exec -it ff4ad7dc42a0  /bin/sh   --> replace the container id
+//runs below in background
+docker run -d -v ~/mygobatchserviceapplogs:/batchserviceapp/logs -v ~/mygobatchserviceappdatafiles:/batchserviceapp/incoming_files --rm -it mygobatchserviceapp 

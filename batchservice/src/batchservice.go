@@ -29,7 +29,7 @@ var (
 
 // initialize the logger
 func init() {
-	file, err := os.OpenFile("../logs/batchservicelogs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile("../logs/batchservicelogs.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
