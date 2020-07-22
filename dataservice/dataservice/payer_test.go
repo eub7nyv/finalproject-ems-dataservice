@@ -52,7 +52,7 @@ func TestSearchResultPlan(t *testing.T) {
 		fmt.Println("id " + strconv.Itoa(planId) + " matched expection id from DB " + strconv.Itoa(plan[0].planId))
 	}
 
-	var searchType = "PlanPayerId"
+	searchType = "PlanPayerId"
 	var planPayerId = 140
 	plan2, err2 := searchResultPlan(searchType, "", planPayerId)
 	if nil == err {
@@ -69,7 +69,7 @@ func TestSearchResultPlan(t *testing.T) {
 	}
 
 	searchType = "PlanName"
-	var planName = "Elderplan Extra Help Medicare Medicare MA"
+	var planName = "Blue Access"
 	plan3, err3 := searchResultPlan(searchType, planName, 0)
 	if nil == err {
 		//fmt.Println(plan)

@@ -119,8 +119,6 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 
 	result := make([]Plan, 1)
 
-	//build query based on searchName, searchString
-	// get plan
 	sqlStatementPlan := buildSql(searchName, name, id)
 	fmt.Println("sqlStatementPlan " + sqlStatementPlan)
 	rows, err := db.Query(sqlStatementPlan)
@@ -137,7 +135,7 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 			if err != nil {
 				panic(err)
 			}
-			fmt.Println(plan)
+			//fmt.Println(plan)
 			result[0] = plan
 			i++
 		}

@@ -152,7 +152,7 @@ func main() {
 		}
 	*/
 	var searchType3 = "PlanId"
-	var planId = 1762
+	var planId = 17629
 	plan, err := searchResultPlan(searchType3, "", planId)
 	if nil == err {
 		//fmt.Println(plan)
@@ -161,6 +161,7 @@ func main() {
 		}
 	}
 	if nil != err {
+		fmt.Println("error")
 		fmt.Println(err)
 	}
 	if planId == plan[0].planId {
@@ -184,7 +185,7 @@ func main() {
 	}
 
 	searchType = "PlanName"
-	var planName = "Elderplan Advantage For Nursing Home Residents Medicare Medicare SN"
+	var planName = "Blue Access"
 	plan3, err3 := searchResultPlan(searchType, planName, 0)
 	if nil == err {
 		//fmt.Println(plan)
