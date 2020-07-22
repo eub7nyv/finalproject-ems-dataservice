@@ -41,7 +41,7 @@ And it can also be externed to other common data such as  NCPDP,  Medical Code ,
 Contain documents related to the project.
 
 # Project Planning
-1. 8:00-8:30 scrum/resolution call daily
+1. 5:00-6:00PM scrum/resolution call daily
 2. Epic/tasks/assignment/stage are setup and tracked under this repo's projects tab.
 
 # Development Strategy
