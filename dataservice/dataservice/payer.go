@@ -53,6 +53,7 @@ func buildSql(sqltype string, name string, id int) string {
 		return fmt.Sprintf("SELECT id, payer_id, payer_name, parent_id FROM payer WHERE payer_id = %d;", id)
 	case "PlanName":
 		return fmt.Sprintf("SELECT id, payer_id, plan_id, plan_name, plan_segment,plan_type,ppo,hmo,pos FROM plan WHERE plan_name ='%s';", name)
+		//return fmt.Sprintf("SELECT id, payer_id, plan_id, plan_name, plan_segment,plan_type,ppo,hmo,pos FROM plan WHERE plan_name =CONCAT(''%'',CONCAT('%s', '%'));", name)
 	case "PlanId":
 		return fmt.Sprintf("SELECT id, payer_id, plan_id, plan_name, plan_segment,plan_type,ppo,hmo,pos FROM plan WHERE plan_id = %d;", id)
 	case "PlanPayerId":
@@ -61,41 +62,6 @@ func buildSql(sqltype string, name string, id int) string {
 		return ""
 	}
 }
-
-/*
-func searchPayer(searchName string, name string, id int) (result []Payer, err error){
-	//build query based on searchName, searchString
-			sqlStatementPlan := buildSql(searchName, name, id)
-			fmt.Println("sqlStatementPlan " + sqlStatementPlan)
-			rows, err := db.Query(sqlStatementPlan)
-			switch err {
-			case sql.ErrNoRows:
-				fmt.Println("No row was returned!")
-				return "", err
-			case nil:
-				defer rows.Close()
-				for rows.Next() {
-					var i2 = 0
-					var payer2 Payer
-					err = rows.Scan(&payer2.id, &payer2.payerId, &payer2.payerName, &payer2.parentId)
-					if err != nil {
-						panic(err)
-					}
-					fmt.Println(payer2)
-					result[i2].payer = payer2
-					i2++
-				}
-				// get any error encountered during iteration
-				err = rows.Err()
-				if err != nil {
-					panic(err)
-				}
-			default:
-				panic(err)
-
-			return result, err
-}
-*/
 
 func searchResultPlan(searchName string, name string, id int) (resultSet []Plan, err error) {
 	//setup DB connection
@@ -128,8 +94,8 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 		err = nil
 	case nil:
 		defer rows.Close()
+		var i = 0
 		for rows.Next() {
-			var i = 0
 			var plan Plan
 			err = rows.Scan(&plan.id, &plan.payerId, &plan.planId, &plan.planName, &plan.segment, &plan.planType, &plan.ppo, &plan.hmo, &plan.pos)
 			if err != nil {
@@ -139,6 +105,55 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 			result[0] = plan
 			i++
 		}
+	default:
+		panic(err)
+	}
+	return result, err
+}
+
+func searchResultPayer(searchName string, name string, id int) (resultSet []Payer, err error) {
+	//setup DB connection
+
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
+
+	//open a connection
+	db, err := sql.Open("postgres", psqlInfo)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Successfully connected!")
+
+	result := make([]Payer, 2)
+
+	sqlStatementPlan := buildSql(searchName, name, id)
+	fmt.Println("sqlStatementPlan " + sqlStatementPlan)
+	rows, err := db.Query(sqlStatementPlan)
+	switch err {
+	case sql.ErrNoRows:
+		fmt.Println("No row was returned!")
+		err = nil
+	case nil:
+		defer rows.Close()
+		var i = 0
+		for rows.Next() {
+			var payer Payer
+			err = rows.Scan(&payer.id, &payer.payerId, &payer.payerName, &payer.parentId)
+			if err != nil {
+				panic(err)
+			}
+			//fmt.Println(payer)
+			result[i] = payer
+			i++
+		}
+
 	default:
 		panic(err)
 	}
@@ -185,33 +200,6 @@ func searchResult(searchName string, name string, id int) (resultSet []Payer, er
 
 				fmt.Println(payer)
 				result[0] = payer
-				/*
-					// get plan
-					sqlStatementPlan := buildSql("PlanPayerId", "", result[0].payer.payerId)
-					fmt.Println("sqlStatementPlan " + sqlStatementPlan)
-					rows, err := db.Query(sqlStatementPlan)
-					if err != nil {
-						// handle this error better than this
-						panic(err)
-					}
-					defer rows.Close()
-					for rows.Next() {
-						var i = 0
-						var plan Plan
-						err = rows.Scan(&plan.id, &plan.payerId, &plan.planId, &plan.planName, &plan.segment, &plan.planType, &plan.ppo, &plan.hmo, &plan.pos)
-						if err != nil {
-							panic(err)
-						}
-						fmt.Println(plan)
-						result[0].plans[i] = plan
-						i++
-					}
-					// get any error encountered during iteration
-					err = rows.Err()
-					if err != nil {
-						panic(err)
-					}
-				*/
 			default:
 				panic(err)
 
@@ -230,8 +218,8 @@ func searchResult(searchName string, name string, id int) (resultSet []Payer, er
 				panic(err)
 			}
 			defer rows.Close()
+			var i2 = 0
 			for rows.Next() {
-				var i2 = 0
 				var payer2 Payer
 				err = rows.Scan(&payer2.id, &payer2.payerId, &payer2.payerName, &payer2.parentId)
 				if err != nil {
