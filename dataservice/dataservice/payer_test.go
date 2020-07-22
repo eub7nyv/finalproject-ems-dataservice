@@ -69,7 +69,7 @@ func TestSearchResultPlan(t *testing.T) {
 	}
 
 	searchType = "PlanName"
-	var planName = "Elderplan Advantage For Nursing Home Residents Medicare Medicare SN"
+	var planName = "Elderplan Extra Help Medicare Medicare MA"
 	plan3, err3 := searchResultPlan(searchType, planName, 0)
 	if nil == err {
 		//fmt.Println(plan)
