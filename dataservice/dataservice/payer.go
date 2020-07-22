@@ -97,6 +97,56 @@ func searchPayer(searchName string, name string, id int) (result []Payer, err er
 }
 */
 
+func searchResultPlan(searchName string, name string, id int) (resultSet []Plan, err error) {
+	//setup DB connection
+
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		host, port, user, password, dbname)
+
+	//open a connection
+	db, err := sql.Open("postgres", psqlInfo)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Successfully connected!")
+
+	result := make([]Plan, 1)
+
+	//build query based on searchName, searchString
+	// get plan
+	sqlStatementPlan := buildSql(searchName, name, id)
+	fmt.Println("sqlStatementPlan " + sqlStatementPlan)
+	rows, err := db.Query(sqlStatementPlan)
+	switch err {
+	case sql.ErrNoRows:
+		fmt.Println("No row was returned!")
+		err = nil
+	case nil:
+		defer rows.Close()
+		for rows.Next() {
+			var i = 0
+			var plan Plan
+			err = rows.Scan(&plan.id, &plan.payerId, &plan.planId, &plan.planName, &plan.segment, &plan.planType, &plan.ppo, &plan.hmo, &plan.pos)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println(plan)
+			result[0] = plan
+			i++
+		}
+	default:
+		panic(err)
+	}
+	return result, err
+}
+
 func searchResult(searchName string, name string, id int) (resultSet []Payer, err error) {
 	//setup DB connection
 

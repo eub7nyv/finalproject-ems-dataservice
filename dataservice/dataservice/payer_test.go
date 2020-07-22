@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"strconv"
 	"testing"
 )
 
@@ -31,4 +33,22 @@ func TestSearchResult(t *testing.T) {
 		t.Errorf("TestSearchResult is off")
 	}
 
+}
+
+func TestSearchResultPlan(t *testing.T) {
+	var searchType = "PlanId"
+	var planId = 17629
+	plan, err := searchResultPlan(searchType, "", planId)
+	if nil == err {
+		//fmt.Println(plan)
+		for i := range plan {
+			fmt.Println(plan[i])
+		}
+	}
+	if nil != err {
+		t.Error(err)
+	}
+	if planId == plan[0].planId {
+		fmt.Println("id " + strconv.Itoa(planId) + " matched expection id from DB " + strconv.Itoa(plan[0].planId))
+	}
 }
