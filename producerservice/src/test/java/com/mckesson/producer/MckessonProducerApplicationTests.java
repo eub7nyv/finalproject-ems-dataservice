@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.mckesson.producer.controller.MckessonController;
+import com.mckesson.producer.entities.Message;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -35,6 +36,17 @@ class MckessonProducerApplicationTests {
 	public void testTest() {
 		log.info("Test Rest end point URL......." +mckController.test());
 		assertNotNull(mckController.test());
+	}
+
+	@Test
+	public void testProduce() {
+		log.info("Test Rest end point URL produce=========================>");
+		Message message = new Message();
+		message.setTopicName("MyTopicName");
+		message.setIncomingMessage( "My IncomingMessage");;
+		mckController.produce(message);
+		log.info("/kafka/produce end point with json ..........................: Success");
+
 	}
 
 }
