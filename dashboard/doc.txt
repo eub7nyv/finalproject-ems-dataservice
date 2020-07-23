@@ -1,0 +1,18 @@
+So far have reviewed two Kafka dashboard tools.
+
+1. Kafka Tool - 
+   GUI tool that is downloaded to your local windows client.  The URL where you can download from is: https://kafkatool.com/
+   Here are some of the details from the website:
+    • Quickly view all your Kafka clusters, including their brokers, topics and consumers
+    • View contents of messages in your partitions and add new messages
+    • View offsets of the consumers, including Apache Storm Kafka spout consumers
+    • Show JSON and XML messages in a pretty-printed format
+    • Add and drop topics plus other management features
+    • Save individual messages from your partitions to local hard drive
+    • Write your own plugins that allow you to view custom data formats
+    • Kafka Tool runs on Windows, Linux and Mac OS
+
+   
+2. CMAK (Cluster Manager for Apache Kafka) - formerly knows as Kafka Manager - 
+  This is Open source software.  The repo can be found at https://github.com/yahoo/CMAK
+  
