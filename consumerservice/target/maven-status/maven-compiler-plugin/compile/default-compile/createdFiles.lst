@@ -1,6 +1,0 @@
-com/mckesson/consumer/utils/ConsumerConstants.class
-com/mckesson/consumer/entity/Message.class
-com/mckesson/consumer/service/ConsumerService.class
-com/mckesson/consumer/kafkaconfig/KafkaConfiguration.class
-com/mckesson/consumer/kafkalistener/KafkaConsumer.class
-com/mckesson/consumer/MckessonConsumerApplication.class
