@@ -1,0 +1,266 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "PHARMACY_ID",
+          "type" : ""
+        },
+        {
+          "name" : "PHARMACY_NAME",
+          "type" : ""
+        },
+        {
+          "name" : "NCPDP",
+          "type" : ""
+        },
+        {
+          "name" : "NPI_NBR",
+          "type" : ""
+        },
+        {
+          "name" : "PHONE_NBR",
+          "type" : ""
+        },
+        {
+          "name" : "FAX_NBR",
+          "type" : ""
+        }
+      ],
+      "items" : [
+        {
+          "pharmacy_id" : 14256,
+          "pharmacy_name" : "WALGREENS",
+          "ncpdp" : "032079",
+          "npi_nbr" : "",
+          "phone_nbr" : "",
+          "fax_nbr" : ""
+        },
+        {
+          "pharmacy_id" : 14259,
+          "pharmacy_name" : "US BIOSERVICES",
+          "ncpdp" : "453180",
+          "npi_nbr" : "",
+          "phone_nbr" : "",
+          "fax_nbr" : ""
+        },
+        {
+          "pharmacy_id" : 14260,
+          "pharmacy_name" : "US BIOSERVICES",
+          "ncpdp" : "453180",
+          "npi_nbr" : "",
+          "phone_nbr" : "",
+          "fax_nbr" : ""
+        },
+        {
+          "pharmacy_id" : 14262,
+          "pharmacy_name" : "WALGREENS",
+          "ncpdp" : "032079",
+          "npi_nbr" : "",
+          "phone_nbr" : "",
+          "fax_nbr" : ""
+        },
+        {
+          "pharmacy_id" : 14265,
+          "pharmacy_name" : "ACCREDO",
+          "ncpdp" : "9876123",
+          "npi_nbr" : 9939911111,
+          "phone_nbr" : 9919991112,
+          "fax_nbr" : 8818828881
+        },
+        {
+          "pharmacy_id" : 14266,
+          "pharmacy_name" : "AET",
+          "ncpdp" : "2342342",
+          "npi_nbr" : 3243242343,
+          "phone_nbr" : 9939919922,
+          "fax_nbr" : 2342343242
+        },
+        {
+          "pharmacy_id" : 14267,
+          "pharmacy_name" : "BIOSCRIP",
+          "ncpdp" : "2342343",
+          "npi_nbr" : 3243243242,
+          "phone_nbr" : 2231113334,
+          "fax_nbr" : 1221331112
+        },
+        {
+          "pharmacy_id" : 14268,
+          "pharmacy_name" : "CAREMARK",
+          "ncpdp" : "2132132",
+          "npi_nbr" : 3434534543,
+          "phone_nbr" : 1223331112,
+          "fax_nbr" : 1231231231
+        },
+        {
+          "pharmacy_id" : 14269,
+          "pharmacy_name" : "CAREPLUS",
+          "ncpdp" : "9213123",
+          "npi_nbr" : 2132131232,
+          "phone_nbr" : 9919929911,
+          "fax_nbr" : 9919393111
+        },
+        {
+          "pharmacy_id" : 14270,
+          "pharmacy_name" : "CIGNA",
+          "ncpdp" : "2332432",
+          "npi_nbr" : 2342343243,
+          "phone_nbr" : 2132221111,
+          "fax_nbr" : 2223331111
+        },
+        {
+          "pharmacy_id" : 14271,
+          "pharmacy_name" : "CURASCRIPT SPECIALTY PHARMACY",
+          "ncpdp" : "4567257",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2052534911
+        },
+        {
+          "pharmacy_id" : 14272,
+          "pharmacy_name" : "ICORE HEALTHCARE SPECIALTY PHARMACY",
+          "ncpdp" : "8888888",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2052534900
+        },
+        {
+          "pharmacy_id" : 14273,
+          "pharmacy_name" : "HUMANA RS SPECIALTY PHARMACY",
+          "ncpdp" : "9999999",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2052534900
+        },
+        {
+          "pharmacy_id" : 14274,
+          "pharmacy_name" : "PRESCRIPTION SOLUTIONS SPECIALT PHARMACY",
+          "ncpdp" : "1010101",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2052534900
+        },
+        {
+          "pharmacy_id" : 14275,
+          "pharmacy_name" : "WALGREENS SPECIALTY PHARMACY",
+          "ncpdp" : "1111111",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2052534900
+        },
+        {
+          "pharmacy_id" : 14279,
+          "pharmacy_name" : "MEDVANTX",
+          "ncpdp" : "435196",
+          "npi_nbr" : "",
+          "phone_nbr" : "",
+          "fax_nbr" : ""
+        },
+        {
+          "pharmacy_id" : 14280,
+          "pharmacy_name" : "APOTHECARY",
+          "ncpdp" : "1111119",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2083610545
+        },
+        {
+          "pharmacy_id" : 14281,
+          "pharmacy_name" : "COMMCARE",
+          "ncpdp" : "1122334",
+          "npi_nbr" : "",
+          "phone_nbr" : 6027038628,
+          "fax_nbr" : 2083610545
+        },
+        {
+          "pharmacy_id" : 14282,
+          "pharmacy_name" : "MODERN",
+          "ncpdp" : "5556667",
+          "npi_nbr" : "",
+          "phone_nbr" : 2052534911,
+          "fax_nbr" : 2052534900
+        },
+        {
+          "pharmacy_id" : 14283,
+          "pharmacy_name" : "CAREPLUS",
+          "ncpdp" : "1146693",
+          "npi_nbr" : "",
+          "phone_nbr" : 4048929131,
+          "fax_nbr" : 4048928102
+        },
+        {
+          "pharmacy_id" : 14285,
+          "pharmacy_name" : "ABC PHARMACY",
+          "ncpdp" : "4675896",
+          "npi_nbr" : 9578346934,
+          "phone_nbr" : 9876543210,
+          "fax_nbr" : 9876543210
+        },
+        {
+          "pharmacy_id" : 14286,
+          "pharmacy_name" : "AVELLA",
+          "ncpdp" : "0354643",
+          "npi_nbr" : "",
+          "phone_nbr" : 4444444444,
+          "fax_nbr" : 5555555555
+        },
+        {
+          "pharmacy_id" : 14297,
+          "pharmacy_name" : "MCKESSON SPECIALTY PHARMACY",
+          "ncpdp" : "035271",
+          "npi_nbr" : 1205035011,
+          "phone_nbr" : 4806634160,
+          "fax_nbr" : 8665583777
+        },
+        {
+          "pharmacy_id" : 14298,
+          "pharmacy_name" : "CVS",
+          "ncpdp" : "1212132",
+          "npi_nbr" : "",
+          "phone_nbr" : 1234567890,
+          "fax_nbr" : 9999999999
+        },
+        {
+          "pharmacy_id" : 14305,
+          "pharmacy_name" : "MCKESSON SPECIALTY PHARMACY",
+          "ncpdp" : "035271",
+          "npi_nbr" : 1205035011,
+          "phone_nbr" : 4806634160,
+          "fax_nbr" : 8665583777
+        },
+        {
+          "pharmacy_id" : 14306,
+          "pharmacy_name" : "ACARIAHEALTH PHARMACY #11 INC",
+          "ncpdp" : "4544424",
+          "npi_nbr" : 1629195045,
+          "phone_nbr" : 7136518001,
+          "fax_nbr" : 8775411503
+        },
+        {
+          "pharmacy_id" : 14307,
+          "pharmacy_name" : "ACRO PHARMACEUTICAL SERVICES",
+          "ncpdp" : "1111111",
+          "npi_nbr" : 1639103823,
+          "phone_nbr" : 8009067798,
+          "fax_nbr" : 4844948235
+        },
+        {
+          "pharmacy_id" : 14308,
+          "pharmacy_name" : "ACS",
+          "ncpdp" : "1013438",
+          "npi_nbr" : 1063510097,
+          "phone_nbr" : 8779856337,
+          "fax_nbr" : 8773813806
+        },
+        {
+          "pharmacy_id" : 14309,
+          "pharmacy_name" : "US BIOSERVICES",
+          "ncpdp" : "2222222",
+          "npi_nbr" : 1275532053,
+          "phone_nbr" : 8885187246,
+          "fax_nbr" : 8778172965
+        }
+      ]
+    }
+  ]
+}

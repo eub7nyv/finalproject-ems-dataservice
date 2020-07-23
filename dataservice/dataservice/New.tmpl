@@ -1,0 +1,11 @@
+{{ define "New" }}
+  {{ template "Header" }}
+    {{ template "Menu" }} 
+   <h2>New Payer</h2>  
+    <form method="POST" action="insert">
+      <label> Payer Name </label><input type="text" name="PayerName" /><br />
+      <label> Parent Id </label><input type="text" name="Parent Id" /><br />
+      <input type="submit" value="Save user" />
+    </form>
+  {{ template "Footer" }}
+{{ end }}

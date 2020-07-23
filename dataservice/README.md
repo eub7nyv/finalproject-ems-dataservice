@@ -22,3 +22,19 @@ From the root dir:
 
 # License
 This is licensed under Apache-2.0.
+
+
+# local run command: 
+go build dataservice/app.go dataservice/payer.go  dataservice/app_test.go dataservice/payer_test.go
+
+./app
+
+
+
+
+## Postgres Log to see if server is OK. if below exists, run command to resolve it
+OXC02XJ0BMJGH8:fullstack shelly.xie@mckesson.com$ tail -n 10 /usr/local/var/log/postgres.log
+2020-07-22 19:06:24.180 MST [11997] FATAL:  lock file "postmaster.pid" already exists
+2020-07-22 19:06:24.180 MST [11997] HINT:  Is another postmaster (PID 817) running in data directory "/usr/local/var/postgres"?
+
+rm -f /usr/local/var/postgres/postmaster.pid

@@ -34,9 +34,7 @@ type PayerPlan struct {
 	plans []Plan
 }
 
-// HiString constant to say hi
-const HiString string = "Hello "
-
+// check string if needed
 func checkArgs(args []string, del string, fieldLen int) (err error) {
 	fmt.Printf("[DEBUG] Checking paramters: '%s'\n", strings.Join(args, del))
 	if fieldLen != len(args) {
@@ -156,88 +154,6 @@ func searchResultPayer(searchName string, name string, id int) (resultSet []Paye
 
 	default:
 		panic(err)
-	}
-	return result, err
-}
-
-func searchResult(searchName string, name string, id int) (resultSet []Payer, err error) {
-	//setup DB connection
-
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
-
-	//open a connection
-	db, err := sql.Open("postgres", psqlInfo)
-	if err != nil {
-		panic(err)
-	}
-	defer db.Close()
-
-	err = db.Ping()
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("Successfully connected!")
-
-	result := make([]Payer, 5)
-
-	//build query based on searchName, searchString
-	switch searchName {
-	case "PayerId":
-		{
-			sqlStatement := buildSql(searchName, name, id)
-			fmt.Println("payerInfo " + sqlStatement)
-
-			var payer Payer
-			row := db.QueryRow(sqlStatement)
-			err := row.Scan(&payer.id, &payer.payerId, &payer.payerName, &payer.parentId)
-			switch err {
-			case sql.ErrNoRows:
-				fmt.Println("No row was returned!")
-				err = nil
-			case nil:
-
-				fmt.Println(payer)
-				result[0] = payer
-			default:
-				panic(err)
-
-			}
-			//resultSet = result
-			return result, err
-		}
-	case "PayerName":
-		{
-			// get plan
-			sqlStatementPlan := buildSql("PayerName", name, id)
-			fmt.Println("sqlStatementPlan " + sqlStatementPlan)
-			rows, err := db.Query(sqlStatementPlan)
-			if err != nil {
-				// handle this error better than this
-				panic(err)
-			}
-			defer rows.Close()
-			var i2 = 0
-			for rows.Next() {
-				var payer2 Payer
-				err = rows.Scan(&payer2.id, &payer2.payerId, &payer2.payerName, &payer2.parentId)
-				if err != nil {
-					panic(err)
-				}
-				fmt.Println(payer2)
-				//result[i2].payer = payer2
-				result[i2] = payer2
-				i2++
-			}
-			// get any error encountered during iteration
-			err = rows.Err()
-			if err != nil {
-				panic(err)
-			}
-		}
-	default:
-		return result, err
 	}
 	return result, err
 }

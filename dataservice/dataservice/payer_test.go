@@ -6,13 +6,13 @@ import (
 	"testing"
 )
 
-func TestSearchResult(t *testing.T) {
+func TestSearchResultPayer(t *testing.T) {
 
 	var searchType = "PayerId"
 	var name = ""
 	var i2 = 140
 	var payer []Payer
-	payer, err := searchResult(searchType, name, i2)
+	payer, err := searchResultPayer(searchType, name, i2)
 	if nil != err {
 		t.Error(err)
 	}
@@ -22,10 +22,8 @@ func TestSearchResult(t *testing.T) {
 
 	searchType = "PayerName"
 	name = "Anthem Empire BlueCross BlueShield"
-	i2 = 140
-	//payerInfo := buildSql("Anthem Empire BlueCross BlueShield")
-	//payer []Payer
-	payer2, err := searchResult(searchType, name, i2)
+	i2 = 0
+	payer2, err := searchResultPayer(searchType, name, i2)
 	if nil != err {
 		t.Error(err)
 	}
