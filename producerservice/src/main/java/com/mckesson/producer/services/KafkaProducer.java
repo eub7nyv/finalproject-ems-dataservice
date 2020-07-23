@@ -1,7 +1,9 @@
 package com.mckesson.producer.services;
 
 import com.mckesson.producer.entities.Message;
+import com.mckesson.producer.utilities.Utilities;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +15,36 @@ public class KafkaProducer {
     private static final Logger logger = LoggerFactory.getLogger(KafkaProducer.class);
 
     @Autowired
-    private KafkaTemplate<String,String> kafkaTemplate;
-    
-    public void sendMessage(String topicName, Message message) {
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+    public void sendMessage(Message message) {
         logger.info(String.format("$$ -> Producing message --> %s", message));
-        this.kafkaTemplate.send(topicName, message.getIncomingMessage());
-        logger.info("Message Recieved......   " + " Topic Name:::" + topicName + "Incoming Message: " + message.getIncomingMessage());
- 
+
+        if (StringUtils.isNotBlank(message.getAppName()) && StringUtils.isNotBlank(message.getIncomingMessage())) {
+            String KAFKA_TOPIC;
+
+            String applicationName = message.getAppName().toUpperCase();
+
+            switch (applicationName) {
+                case "DRGPAYER":
+                    KAFKA_TOPIC = Utilities.environmentOrDefault("DRG_PAYER_TOPIC_NAME", "default-topic");
+                    break;
+                case "DRGPLAN":
+                    KAFKA_TOPIC = Utilities.environmentOrDefault("DRG_PLAN_TOPIC_NAME", "default-topic");
+                    break;
+                case "NCPDP":
+                    KAFKA_TOPIC = Utilities.environmentOrDefault("NCPDP_TOPIC_NAME", "default-topic");
+                    ;
+                    break;
+                default:
+                    KAFKA_TOPIC = Utilities.environmentOrDefault("DEFAULT_TOPIC_NAME", "default-topic");
+                    break;
+            }
+
+            this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage());
+            logger.info("Message Recieved......   " + " Topic Name:::" + KAFKA_TOPIC + "Incoming Message: "
+                    + message.getIncomingMessage());
+        }
+
     }
 }

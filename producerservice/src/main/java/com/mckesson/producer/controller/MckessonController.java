@@ -1,15 +1,20 @@
 package com.mckesson.producer.controller;
 
 import com.mckesson.producer.entities.Message;
+import com.mckesson.producer.services.KafkaProducer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MckessonController {
 
     private static final Logger log = LoggerFactory.getLogger(MckessonController.class);
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
     
     @RequestMapping("/")
 	public String home() {
@@ -22,13 +27,10 @@ public class MckessonController {
     }
 
     @PostMapping(path = "/mckesson/produce")
-    public void produce(@RequestBody Message msg) {
+    public void produce(@RequestBody Message message) {
 
-        /* Wite the Kafka producer call here.
-         * For time being I am printing the customer Message just to show the POST call is working.
-         */
-
-        log.info( "Message Recieved:::::   "+"Topic Name:::" +msg.getAppName()+ "Incoming Message: " +msg.getIncomingMessage() ) ;
+        kafkaProducer.sendMessage(message);
+        log.info( "Message Recieved:::::   "+"Topic Name:::" +message.getAppName()+ "Incoming Message: " +message.getIncomingMessage() ) ;
     }
 
 }

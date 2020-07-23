@@ -82,7 +82,7 @@ class MckessonProducerApplicationTests {
 		Message message = new Message();
 		message.setAppName("defaultTopic");
 		message.setIncomingMessage("My IncomingMessage from test case");
-		kafkaProducer.sendMessage("topicname", message);
+		kafkaProducer.sendMessage(message);
 		log.info("7.............../mckesson/produce end point with json ..........................: Success");
 	}
 
