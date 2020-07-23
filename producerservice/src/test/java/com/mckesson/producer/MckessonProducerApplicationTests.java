@@ -77,13 +77,22 @@ class MckessonProducerApplicationTests {
 	}
 
 	/* ================= Test Cases for  KafkaProducer ====================*/
-	@Test
-	public void testSendMessage() {
+	//@Test
+	public void testSendMessageWithValidApplicaionName() {
 		Message message = new Message();
-		message.setAppName("defaultTopic");
+		message.setAppName("drgpayer"); //valid application name
 		message.setIncomingMessage("My IncomingMessage from test case");
 		kafkaProducer.sendMessage(message);
-		log.info("7.............../mckesson/produce end point with json ..........................: Success");
+		log.info("7.............../mckesson/produce end point with json ..........................: Success: Good Application name");
+	}
+
+	@Test
+	public void testSendMessageWithUnsupportedApplicaionName() {
+		Message message = new Message();
+		message.setAppName("Unsupported_application_name");//In-valid application name
+		message.setIncomingMessage("My IncomingMessage from test case");
+		kafkaProducer.sendMessage(message);
+		log.info("8.............../mckesson/produce end point with json ..........................: Failed: Bad application name");
 	}
 
 }

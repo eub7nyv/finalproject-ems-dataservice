@@ -21,7 +21,7 @@ public class KafkaProducer {
         logger.info(String.format("$$ -> Producing message --> %s", message));
 
         if (StringUtils.isNotBlank(message.getAppName()) && StringUtils.isNotBlank(message.getIncomingMessage())) {
-            String KAFKA_TOPIC;
+            String KAFKA_TOPIC=null;
 
             String applicationName = message.getAppName().toUpperCase();
 
@@ -34,16 +34,17 @@ public class KafkaProducer {
                     break;
                 case "NCPDP":
                     KAFKA_TOPIC = Utilities.environmentOrDefault("NCPDP_TOPIC_NAME", "default-topic");
-                    ;
                     break;
-                default:
-                    KAFKA_TOPIC = Utilities.environmentOrDefault("DEFAULT_TOPIC_NAME", "default-topic");
-                    break;
+
             }
 
-            this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage());
-            logger.info("Message Recieved......   " + " Topic Name:::" + KAFKA_TOPIC + "Incoming Message: "
-                    + message.getIncomingMessage());
+            if(StringUtils.isNotBlank(KAFKA_TOPIC)){
+                this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage());
+                logger.info("Message Recieved......   " + " Topic Name:::" + KAFKA_TOPIC + "Incoming Message: "
+                        + message.getIncomingMessage());
+            }else {
+                logger.error("Failed to send the message....The Application is not supported...........");
+            }
         }
 
     }
