@@ -21,7 +21,7 @@ public class KafkaConsumer {
 
        @KafkaListener(topics="time-topic" , groupId = "docker-compose-consumer")
        public String  consumerExample(String message){
-    	   System.out.println("<<<<<< message >>>>"+message);
+    	System.out.println("<<<<<< message >>>>"+message);
         String statusMessage= consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_TIME_TOPIC, message);
         System.out.println("<<<<<< Status Message From Service >>>>"+statusMessage);
         return statusMessage;

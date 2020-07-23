@@ -12,6 +12,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @EntityScan
 public class Message {
 
+	public Message() {
+		super();
+	}
 	private String appName;
     private String incomingMessage;
     private String topicName;

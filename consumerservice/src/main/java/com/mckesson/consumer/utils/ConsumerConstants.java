@@ -8,7 +8,7 @@ public interface ConsumerConstants {
 	public static final String ERROR_MESSAGE="There is Some issue in DB and Data not Saved";
 	public static final String SUCCESS_MESSAGE="Data Saved Sucefully";
 	public static final String TOPIC_TIME_TOPIC="time-topic";
-	public static final String REST_API_URL="http://localhost:9898/mckesson/saveConsumerData/";
+	public static final String REST_API_URL="http://dataservice:9897/mckesson/saveConsumerData";
 
 
 }

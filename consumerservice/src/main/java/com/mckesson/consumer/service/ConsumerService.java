@@ -29,12 +29,12 @@ public class ConsumerService {
 			
 			//https://mckessondataservice.app.ps.west.us.mckesson.com/greeting
 			
-			    final String uri = "http://dataservice:9897/mckesson/saveConsumerData";
+			   // final String uri = "http://dataservice:9897/mckesson/saveConsumerData";
 			 
 			    Message messageObj = new Message(topicName,message);
 			 
 			    RestTemplate restTemplate = new RestTemplate();
-			    String result = restTemplate.postForObject( uri, messageObj, String.class);
+			    String result = restTemplate.postForObject( ConsumerConstants.REST_API_URL, messageObj, String.class);
 			
 				System.out.println("<<<<<< Status REST API >>>> From Service >>>>" + result );
 			
