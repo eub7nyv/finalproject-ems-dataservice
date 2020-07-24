@@ -1,4 +1,4 @@
-PAYER_ID|Plan ID|Plan Name|SEGMENT|PLAN_TYPE_NAME|PPO|HMO|POS
+PAYER_ID|Plan_ID|Plan_Name|SEGMENT|PLAN_TYPE_NAME|PPO|HMO|POS
 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
 140|17630|Elderplan Extra Help |Medicare|Medicare MA|Y|N|N
 140|17631|Elderplan For Medicaid Beneficiaries |Medicare|Medicare SN|Y|N|N
