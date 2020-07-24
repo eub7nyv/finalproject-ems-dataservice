@@ -22,23 +22,21 @@ services:
     tty: true
     ports:
       - 9898:9897
-    env_file:
-      - kafka.env
+    depends_on:
+       - dbpostgresql
     environment:
       CONSUMER_ID: docker-compose-dataservice
     networks:
       - kafka
       
-  docker-mysql:
-    restart: always
-    container_name: dataservicelatest
-    image: mysql/mysql-server:latest
-    environment:
-      MYSQL_DATABASE: kafkadb
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_ROOT_HOST: '%'
+  dbpostgresql:
+    image: postgres
     ports:
-      - "6033:3306"
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=kafkadb
     networks:
       - kafka
 
