@@ -2,6 +2,11 @@ package com.mckesson.producer.entities;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+/**
+ * @author anoopunnikrishnan
+ *
+ */
+
 @EntityScan
 public class Message {
 

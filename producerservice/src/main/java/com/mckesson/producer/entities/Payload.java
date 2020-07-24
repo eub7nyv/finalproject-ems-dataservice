@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @author anoopunnikrishnan
+ *
+ */
+
 @Entity
 public class Payload {
     

@@ -2,6 +2,11 @@ package com.mckesson.producer.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author anoopunnikrishnan
+ *
+ */
+
 public class PayloadDTO {
 
     private Long id;
