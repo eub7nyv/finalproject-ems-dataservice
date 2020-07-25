@@ -16,7 +16,6 @@ import (
 )
 
 const sleepTime = 5
-
 const consumerendpoint = "http://mckessonproducer:8081/mckesson/produce"
 
 //const consumerendpoint = "http://httpbin.org/post"
@@ -47,55 +46,41 @@ func init() {
 	ErrorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
 }
 
-// read config file and return all configuration
-func readconfigandreturnbytevalue() ([]byte, error) {
-	InfoLogger.Println("starting the readconfigandreturnbytevalue method")
-	var byte_value []byte
-	jsonFile, err := os.Open("../config/batchservicefileconfig.json")
-	defer jsonFile.Close()
-	// if os.Open returns an error then handle it
+func httpPost(appname string, eachline string) error {
+	InfoLogger.Println("starting the httpPost method")
+
+	jsonData := map[string]string{"appName": appname, "message": eachline}
+	jsonValue, _ := json.Marshal(jsonData)
+	response, err := http.Post(consumerendpoint, "application/json", bytes.NewBuffer(jsonValue))
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("The HTTP request failed with error %s\n", err)
 		ErrorLogger.Println(err)
-		return byte_value, err
+		return err
+	} else {
+		defer response.Body.Close()
+		data, _ := ioutil.ReadAll(response.Body)
+		InfoLogger.Println("consumerendpoint: " + consumerendpoint + " request: " + string(jsonValue))
+		InfoLogger.Println("response: " + string(data))
+		fmt.Println("response: " + string(data))
+
 	}
-	// read our opened File as a byte array.
-	file_byte_value, _ := ioutil.ReadAll(jsonFile)
-	InfoLogger.Println("exiting the readconfigandreturnbytevalue method successfully before return statement")
-	return file_byte_value, err
+	InfoLogger.Println("exiting the httpPost method")
+	return err
 }
 
-func searchandprocess(Filepath string, Filepattern string, Appname string, Ignorehdr string) error {
-	InfoLogger.Println("starting the searchandprocess method for " + Filepath + Filepattern)
-	matches, err := filepath.Glob(Filepath + Filepattern)
+func backupfile(file string) error {
+	InfoLogger.Println("starting the backupfile method")
+	InfoLogger.Println("Backing up file: " + file)
+	currentTime := time.Now()
+	appendStr := ".processed_" + currentTime.Format("2006-01-02_15.04.05.000000000")
+	err := os.Rename(file, file+appendStr)
 	if err != nil {
 		fmt.Println(err)
 		ErrorLogger.Println(err)
 		return err
 	}
-	if len(matches) != 0 {
-		fmt.Println("\nFound : ", matches)
-		InfoLogger.Println("Found : ", matches)
-		for _, file := range matches {
-			fmt.Println("\nFound : ", file)
-			// open each file and loop thru all records and call producer end point .. Once process, move the file too backup and add datetimestamp to the file
-			errp := processfile(file, Appname, Ignorehdr)
-			if errp != nil {
-				fmt.Println(errp)
-				ErrorLogger.Println(errp)
-				return errp
-			}
-			errb := backupfile(file)
-			if errb != nil {
-				fmt.Println(errb)
-				ErrorLogger.Println(errb)
-				return errb
-			}
-		}
-	} else {
-		InfoLogger.Println("No files found for " + Filepath + Filepattern)
-	}
-	InfoLogger.Println("exiting the searchandprocess method successfully")
+	InfoLogger.Println("Backed up file name: " + file + appendStr)
+	InfoLogger.Println("exiting the backupfile method")
 	return err
 }
 
@@ -137,20 +122,56 @@ func processfile(file string, appname string, ignorehdr string) error {
 	return err
 }
 
-func backupfile(file string) error {
-	InfoLogger.Println("starting the backupfile method")
-	InfoLogger.Println("Backing up file: " + file)
-	currentTime := time.Now()
-	appendStr := ".processed_" + currentTime.Format("2006-01-02_15.04.05.000000000")
-	err := os.Rename(file, file+appendStr)
+func searchandprocess(Filepath string, Filepattern string, Appname string, Ignorehdr string) error {
+	InfoLogger.Println("starting the searchandprocess method for " + Filepath + Filepattern)
+	matches, err := filepath.Glob(Filepath + Filepattern)
 	if err != nil {
 		fmt.Println(err)
 		ErrorLogger.Println(err)
 		return err
 	}
-	InfoLogger.Println("Backed up file name: " + file + appendStr)
-	InfoLogger.Println("exiting the backupfile method")
+	if len(matches) != 0 {
+		fmt.Println("\nFound : ", matches)
+		InfoLogger.Println("Found : ", matches)
+		for _, file := range matches {
+			fmt.Println("\nFound : ", file)
+			// open each file and loop thru all records and call producer end point .. Once process, move the file too backup and add datetimestamp to the file
+			errp := processfile(file, Appname, Ignorehdr)
+			if errp != nil {
+				fmt.Println(errp)
+				ErrorLogger.Println(errp)
+				return errp
+			}
+			errb := backupfile(file)
+			if errb != nil {
+				fmt.Println(errb)
+				ErrorLogger.Println(errb)
+				return errb
+			}
+		}
+	} else {
+		InfoLogger.Println("No files found for " + Filepath + Filepattern)
+	}
+	InfoLogger.Println("exiting the searchandprocess method successfully")
 	return err
+}
+
+// read config file and return all configuration
+func readconfigandreturnbytevalue() ([]byte, error) {
+	InfoLogger.Println("starting the readconfigandreturnbytevalue method")
+	var byte_value []byte
+	jsonFile, err := os.Open("../config/batchservicefileconfig.json")
+	defer jsonFile.Close()
+	// if os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+		ErrorLogger.Println(err)
+		return byte_value, err
+	}
+	// read our opened File as a byte array.
+	file_byte_value, _ := ioutil.ReadAll(jsonFile)
+	InfoLogger.Println("exiting the readconfigandreturnbytevalue method successfully before return statement")
+	return file_byte_value, err
 }
 
 func loadconfigfile() ([]Config, error) {
@@ -184,28 +205,6 @@ func loadconfigfile() ([]Config, error) {
 	InfoLogger.Println("End loading the config.json values ..")
 	InfoLogger.Println("exiting the loadconfigfile method")
 	return config, err
-}
-
-func httpPost(appname string, eachline string) error {
-	InfoLogger.Println("starting the httpPost method")
-
-	jsonData := map[string]string{"appName": appname, "message": eachline}
-	jsonValue, _ := json.Marshal(jsonData)
-	response, err := http.Post(consumerendpoint, "application/json", bytes.NewBuffer(jsonValue))
-	if err != nil {
-		fmt.Printf("The HTTP request failed with error %s\n", err)
-		ErrorLogger.Println(err)
-		return err
-	} else {
-		defer response.Body.Close()
-		data, _ := ioutil.ReadAll(response.Body)
-		InfoLogger.Println("consumerendpoint: " + consumerendpoint + " request: " + string(jsonValue))
-		InfoLogger.Println("response: " + string(data))
-		fmt.Println("response: " + string(data))
-
-	}
-	InfoLogger.Println("exiting the httpPost method")
-	return err
 }
 
 func main() {
