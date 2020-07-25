@@ -5,3 +5,5 @@ docker run -d --rm -it mygobatchserviceapp  ——>run in background
 docker exec -it ff4ad7dc42a0  /bin/sh   --> replace the container id
 //runs below in background
 docker run -d -v ~/mygobatchserviceapplogs:/batchserviceapp/logs -v ~/mygobatchserviceappdatafiles:/batchserviceapp/incoming_files --rm -it mygobatchserviceapp 
+//runs below in foreground
+docker run -v ~/mygobatchserviceapplogs:/batchserviceapp/logs -v ~/mygobatchserviceappdatafiles:/batchserviceapp/incoming_files --rm -it mygobatchserviceapp 

@@ -1,526 +1,212 @@
-INFO: 2020/07/20 18:05:16 batchservice.go:175: starting the Main method
-INFO: 2020/07/20 18:05:16 batchservice.go:142: starting the loadconfigfile method
-INFO: 2020/07/20 18:05:16 batchservice.go:44: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 18:05:16 batchservice.go:56: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 18:05:16 batchservice.go:155: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 18:05:16 batchservice.go:157: Lenght of config: 4
-INFO: 2020/07/20 18:05:16 batchservice.go:161: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 18:05:16 batchservice.go:161: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 18:05:16 batchservice.go:161: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 18:05:16 batchservice.go:161: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 18:05:16 batchservice.go:169: End loading the config.json values ..
-INFO: 2020/07/20 18:05:16 batchservice.go:170: exiting the loadconfigfile method
-INFO: 2020/07/20 18:05:16 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:05:16 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:16 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:16 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:16 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:16 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:16 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:05:21 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:05:21 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:21 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:21 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:21 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:21 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:21 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:05:26 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:05:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:05:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:05:26 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:29:26 batchservice.go:175: starting the Main method
-INFO: 2020/07/20 18:29:26 batchservice.go:142: starting the loadconfigfile method
-INFO: 2020/07/20 18:29:26 batchservice.go:44: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 18:29:26 batchservice.go:56: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 18:29:26 batchservice.go:155: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 18:29:26 batchservice.go:157: Lenght of config: 4
-INFO: 2020/07/20 18:29:26 batchservice.go:161: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 18:29:26 batchservice.go:161: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 18:29:26 batchservice.go:161: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 18:29:26 batchservice.go:161: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 18:29:26 batchservice.go:169: End loading the config.json values ..
-INFO: 2020/07/20 18:29:26 batchservice.go:170: exiting the loadconfigfile method
-INFO: 2020/07/20 18:29:26 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:29:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:26 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:26 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:26 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:29:31 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:29:31 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:31 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:31 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:31 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:31 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:31 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:29:36 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:29:36 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:36 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:36 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:36 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:29:36 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:29:36 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:53:53 batchservice.go:175: starting the Main method
-INFO: 2020/07/20 18:53:53 batchservice.go:142: starting the loadconfigfile method
-INFO: 2020/07/20 18:53:53 batchservice.go:44: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 18:53:53 batchservice.go:56: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 18:53:53 batchservice.go:155: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 18:53:53 batchservice.go:157: Lenght of config: 4
-INFO: 2020/07/20 18:53:53 batchservice.go:161: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 18:53:53 batchservice.go:161: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 18:53:53 batchservice.go:161: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 18:53:53 batchservice.go:161: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 18:53:53 batchservice.go:169: End loading the config.json values ..
-INFO: 2020/07/20 18:53:53 batchservice.go:170: exiting the loadconfigfile method
-INFO: 2020/07/20 18:53:53 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:53:53 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:53 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:53 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:53 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:53:53 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:53 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 18:53:58 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 18:53:58 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:58 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:58 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:58 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 18:53:58 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 18:53:58 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 23:35:33 batchservice.go:201: starting the Main method
-INFO: 2020/07/20 23:35:33 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:35:33 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:35:33 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:35:33 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:35:33 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:35:33 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:35:33 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:35:33 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:35:33 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:35:33 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:35:33 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:35:33 batchservice.go:214: Proceed with scanning for files
-INFO: 2020/07/20 23:35:33 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:35:33 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:35:33 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:35:33 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:35:33 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:35:33 batchservice.go:225: Sleeping for 5 secs
-INFO: 2020/07/20 23:41:05 batchservice.go:201: starting the Main method
-INFO: 2020/07/20 23:41:05 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:41:05 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:41:05 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:41:05 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:41:05 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:41:05 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:41:05 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:41:05 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:41:05 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:41:05 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:41:05 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:41:05 batchservice.go:214: Proceed with scanning for files
-INFO: 2020/07/20 23:41:05 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:05 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:05 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:05 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:41:05 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:05 batchservice.go:225: Sleeping for 5 secs
-INFO: 2020/07/20 23:41:10 batchservice.go:214: Proceed with scanning for files
-INFO: 2020/07/20 23:41:10 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:10 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:10 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:10 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:41:10 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:41:10 batchservice.go:225: Sleeping for 5 secs
-INFO: 2020/07/20 23:42:07 batchservice.go:175: starting the Main method
-INFO: 2020/07/20 23:42:07 batchservice.go:142: starting the loadconfigfile method
-INFO: 2020/07/20 23:42:07 batchservice.go:44: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:42:07 batchservice.go:56: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:42:07 batchservice.go:155: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:42:07 batchservice.go:157: Lenght of config: 4
-INFO: 2020/07/20 23:42:07 batchservice.go:161: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:42:07 batchservice.go:161: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:42:07 batchservice.go:161: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:42:07 batchservice.go:161: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:42:07 batchservice.go:169: End loading the config.json values ..
-INFO: 2020/07/20 23:42:07 batchservice.go:170: exiting the loadconfigfile method
-INFO: 2020/07/20 23:42:07 batchservice.go:188: Proceed with scanning for files
-INFO: 2020/07/20 23:42:07 batchservice.go:61: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:88: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:42:07 batchservice.go:61: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:88: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:42:07 batchservice.go:61: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:88: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:42:07 batchservice.go:61: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:88: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:42:07 batchservice.go:90: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:42:07 batchservice.go:199: Sleeping for 5 secs
-INFO: 2020/07/20 23:45:47 batchservice.go:200: starting the Main method
-INFO: 2020/07/20 23:45:47 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:45:47 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:45:47 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:45:47 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:45:47 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:45:47 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:45:47 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:45:47 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:45:47 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:45:47 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:45:47 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:45:47 batchservice.go:213: Proceed with scanning for files
-INFO: 2020/07/20 23:45:47 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:45:47 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:45:47 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:45:47 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:45:47 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:45:47 batchservice.go:224: Sleeping for 5 secs
-INFO: 2020/07/20 23:47:43 batchservice.go:200: starting the Main method
-INFO: 2020/07/20 23:47:43 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:47:43 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:47:43 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:47:43 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:47:43 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:47:43 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:47:43 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:47:43 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:47:43 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:47:43 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:47:43 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:47:43 batchservice.go:213: Proceed with scanning for files
-INFO: 2020/07/20 23:47:43 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:47:43 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:47:43 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:47:43 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:47:43 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:47:43 batchservice.go:224: Sleeping for 5 secs
-INFO: 2020/07/20 23:48:24 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:48:24 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:48:24 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:48:24 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:48:24 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:48:24 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:48:24 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:48:24 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:48:24 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:48:24 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:48:24 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:48:24 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:48:24 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:48:24 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:24 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:24 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:24 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:48:24 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:24 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/20 23:48:42 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:48:42 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:48:42 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:48:42 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:48:42 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:48:42 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:48:42 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:48:42 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:48:42 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:48:42 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:48:42 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:48:42 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:48:42 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:48:42 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:42 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:42 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:42 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:48:42 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:48:42 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/20 23:49:29 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:49:29 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:49:29 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:49:29 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:49:29 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:49:29 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:49:29 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:49:29 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:49:29 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:49:29 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:49:29 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:49:29 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:49:29 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:49:29 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:49:29 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:49:29 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:49:29 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:49:29 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:49:29 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/20 23:50:41 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:50:41 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:50:41 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:50:41 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:50:41 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:50:41 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:50:41 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:50:41 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:50:41 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:50:41 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:50:41 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:50:41 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:50:41 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:50:41 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:50:41 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:50:41 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:50:41 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:50:41 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:50:41 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/20 23:51:40 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:51:40 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:51:40 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:51:40 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:51:40 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:51:40 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:51:40 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:51:40 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:51:40 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:51:40 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:51:40 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:51:40 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:51:40 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:51:40 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:51:40 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:51:40 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:51:40 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:51:40 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:51:40 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/20 23:54:01 batchservice.go:194: starting the Main method
-INFO: 2020/07/20 23:54:01 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/20 23:54:01 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/20 23:54:01 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/20 23:54:01 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/20 23:54:01 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/20 23:54:01 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/20 23:54:01 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/20 23:54:01 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/20 23:54:01 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/20 23:54:01 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/20 23:54:01 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/20 23:54:01 batchservice.go:207: Proceed with scanning for files
-INFO: 2020/07/20 23:54:01 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:54:01 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:54:01 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:54:01 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/20 23:54:01 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/20 23:54:01 batchservice.go:218: Sleeping for 5 secs
-INFO: 2020/07/21 00:00:04 batchservice.go:195: starting the Main method
-INFO: 2020/07/21 00:00:04 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/21 00:00:04 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/21 00:00:04 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/21 00:00:04 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/21 00:00:04 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/21 00:00:04 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/21 00:00:04 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/21 00:00:04 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/21 00:00:04 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/21 00:00:04 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/21 00:00:04 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/21 00:00:04 batchservice.go:208: Proceed with scanning for files
-INFO: 2020/07/21 00:00:04 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:04 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:04 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:04 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:00:04 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:04 batchservice.go:219: Sleeping for 5 secs
-INFO: 2020/07/21 00:00:21 batchservice.go:195: starting the Main method
-INFO: 2020/07/21 00:00:21 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/21 00:00:21 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/21 00:00:21 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/21 00:00:21 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/21 00:00:21 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/21 00:00:21 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/21 00:00:21 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/21 00:00:21 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/21 00:00:21 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/21 00:00:21 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/21 00:00:21 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/21 00:00:21 batchservice.go:208: Proceed with scanning for files
-INFO: 2020/07/21 00:00:21 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:21 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:21 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:21 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:00:21 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:00:21 batchservice.go:219: Sleeping for 5 secs
-INFO: 2020/07/21 00:03:45 batchservice.go:196: starting the Main method
-INFO: 2020/07/21 00:03:45 batchservice.go:144: starting the loadconfigfile method
-INFO: 2020/07/21 00:03:45 batchservice.go:46: starting the readconfigandreturnbytevalue method
-INFO: 2020/07/21 00:03:45 batchservice.go:58: exiting the readconfigandreturnbytevalue method successfully before return statement
-INFO: 2020/07/21 00:03:45 batchservice.go:157: Full list of config values: [{Filepath:../incoming_files/ Filepattern:drgdata*.txt Topic:DRGDATA} {Filepath:../incoming_files/ Filepattern:prsdata*.txt Topic:PRSDATA} {Filepath:../incoming_files/ Filepattern:payer*.txt Topic:PAYERDATA} {Filepath:../incoming_files/ Filepattern:plan*.txt Topic:PLANDATA}]
-INFO: 2020/07/21 00:03:45 batchservice.go:159: Lenght of config: 4
-INFO: 2020/07/21 00:03:45 batchservice.go:163: config: ../incoming_files/drgdata*.txt DRGDATA
-INFO: 2020/07/21 00:03:45 batchservice.go:163: config: ../incoming_files/prsdata*.txt PRSDATA
-INFO: 2020/07/21 00:03:45 batchservice.go:163: config: ../incoming_files/payer*.txt PAYERDATA
-INFO: 2020/07/21 00:03:45 batchservice.go:163: config: ../incoming_files/plan*.txt PLANDATA
-INFO: 2020/07/21 00:03:45 batchservice.go:171: End loading the config.json values ..
-INFO: 2020/07/21 00:03:45 batchservice.go:172: exiting the loadconfigfile method
-INFO: 2020/07/21 00:03:45 batchservice.go:209: Proceed with scanning for files
-INFO: 2020/07/21 00:03:45 batchservice.go:63: starting the searchandprocess method for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:90: No files found for ../incoming_files/drgdata*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:03:45 batchservice.go:63: starting the searchandprocess method for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:90: No files found for ../incoming_files/prsdata*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:03:45 batchservice.go:63: starting the searchandprocess method for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:90: No files found for ../incoming_files/payer*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:03:45 batchservice.go:63: starting the searchandprocess method for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:90: No files found for ../incoming_files/plan*.txt
-INFO: 2020/07/21 00:03:45 batchservice.go:92: exiting the searchandprocess method successfully
-INFO: 2020/07/21 00:03:45 batchservice.go:220: Sleeping for 5 secs
+INFO: 2020/07/25 01:07:55 batchservice.go:212: starting the Main method
+INFO: 2020/07/25 01:07:55 batchservice.go:156: starting the loadconfigfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:51: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 01:07:55 batchservice.go:63: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 01:07:55 batchservice.go:169: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 01:07:55 batchservice.go:171: Lenght of config: 3
+INFO: 2020/07/25 01:07:55 batchservice.go:175: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 01:07:55 batchservice.go:175: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 01:07:55 batchservice.go:175: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 01:07:55 batchservice.go:183: End loading the config.json values ..
+INFO: 2020/07/25 01:07:55 batchservice.go:184: exiting the loadconfigfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:225: Proceed with scanning for files
+INFO: 2020/07/25 01:07:55 batchservice.go:68: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:07:55 batchservice.go:95: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:07:55 batchservice.go:97: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:07:55 batchservice.go:68: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 01:07:55 batchservice.go:77: Found :  [../incoming_files/payer.txt]
+INFO: 2020/07/25 01:07:55 batchservice.go:102: starting the processfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:103: Processing file: ../incoming_files/payer.txt appname: drgpayer
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 0 : PAYER_ID|Payer_Name|Parent_Id
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 1 : 140|Metropolitan Jewish Health System Elderplan|320
+INFO: 2020/07/25 01:07:55 batchservice.go:189: starting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:201: consumerendpointhttp://httpbin.org/post request: {"appName":"drgpayer","message":"140|Metropolitan Jewish Health System Elderplan|320"}
+INFO: 2020/07/25 01:07:55 batchservice.go:202: response: {
+  "args": {}, 
+  "data": "{\"appName\":\"drgpayer\",\"message\":\"140|Metropolitan Jewish Health System Elderplan|320\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "86", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Go-http-client/1.1", 
+    "X-Amzn-Trace-Id": "Root=1-5f1be85b-394f273102c83abbdc406a78"
+  }, 
+  "json": {
+    "appName": "drgpayer", 
+    "message": "140|Metropolitan Jewish Health System Elderplan|320"
+  }, 
+  "origin": "68.3.30.26, 104.129.199.32", 
+  "url": "http://httpbin.org/post"
+}
+
+INFO: 2020/07/25 01:07:55 batchservice.go:206: exiting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 2 : 141|Anthem Empire BlueCross BlueShield|2
+INFO: 2020/07/25 01:07:55 batchservice.go:189: starting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:201: consumerendpointhttp://httpbin.org/post request: {"appName":"drgpayer","message":"141|Anthem Empire BlueCross BlueShield|2"}
+INFO: 2020/07/25 01:07:55 batchservice.go:202: response: {
+  "args": {}, 
+  "data": "{\"appName\":\"drgpayer\",\"message\":\"141|Anthem Empire BlueCross BlueShield|2\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "75", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Go-http-client/1.1", 
+    "X-Amzn-Trace-Id": "Root=1-5f1be85b-5e84dba81a2af98bed489082"
+  }, 
+  "json": {
+    "appName": "drgpayer", 
+    "message": "141|Anthem Empire BlueCross BlueShield|2"
+  }, 
+  "origin": "68.3.30.26, 104.129.199.32", 
+  "url": "http://httpbin.org/post"
+}
+
+INFO: 2020/07/25 01:07:55 batchservice.go:206: exiting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 3 : 842|Ector County Independent School District|606
+INFO: 2020/07/25 01:07:55 batchservice.go:189: starting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:201: consumerendpointhttp://httpbin.org/post request: {"appName":"drgpayer","message":"842|Ector County Independent School District|606"}
+INFO: 2020/07/25 01:07:55 batchservice.go:202: response: {
+  "args": {}, 
+  "data": "{\"appName\":\"drgpayer\",\"message\":\"842|Ector County Independent School District|606\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "83", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Go-http-client/1.1", 
+    "X-Amzn-Trace-Id": "Root=1-5f1be85b-e5c2ea65e73fc4840304f7c1"
+  }, 
+  "json": {
+    "appName": "drgpayer", 
+    "message": "842|Ector County Independent School District|606"
+  }, 
+  "origin": "68.3.30.26, 104.129.199.32", 
+  "url": "http://httpbin.org/post"
+}
+
+INFO: 2020/07/25 01:07:55 batchservice.go:206: exiting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 4 : 904|Evangelical Lutheran Church in America ELCA Board of Pensions|657
+INFO: 2020/07/25 01:07:55 batchservice.go:189: starting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:201: consumerendpointhttp://httpbin.org/post request: {"appName":"drgpayer","message":"904|Evangelical Lutheran Church in America ELCA Board of Pensions|657"}
+INFO: 2020/07/25 01:07:55 batchservice.go:202: response: {
+  "args": {}, 
+  "data": "{\"appName\":\"drgpayer\",\"message\":\"904|Evangelical Lutheran Church in America ELCA Board of Pensions|657\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "104", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Go-http-client/1.1", 
+    "X-Amzn-Trace-Id": "Root=1-5f1be85b-1c05a2132a1c2f352c683021"
+  }, 
+  "json": {
+    "appName": "drgpayer", 
+    "message": "904|Evangelical Lutheran Church in America ELCA Board of Pensions|657"
+  }, 
+  "origin": "68.3.30.26, 104.129.199.32", 
+  "url": "http://httpbin.org/post"
+}
+
+INFO: 2020/07/25 01:07:55 batchservice.go:206: exiting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:123: record #: 5 : 979|State of Texas Employees Retirement System of Texas|20
+INFO: 2020/07/25 01:07:55 batchservice.go:189: starting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:201: consumerendpointhttp://httpbin.org/post request: {"appName":"drgpayer","message":"979|State of Texas Employees Retirement System of Texas|20"}
+INFO: 2020/07/25 01:07:55 batchservice.go:202: response: {
+  "args": {}, 
+  "data": "{\"appName\":\"drgpayer\",\"message\":\"979|State of Texas Employees Retirement System of Texas|20\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Encoding": "gzip", 
+    "Content-Length": "93", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "Go-http-client/1.1", 
+    "X-Amzn-Trace-Id": "Root=1-5f1be85b-474e4118aa895724b7c42a79"
+  }, 
+  "json": {
+    "appName": "drgpayer", 
+    "message": "979|State of Texas Employees Retirement System of Texas|20"
+  }, 
+  "origin": "68.3.30.26, 104.129.199.32", 
+  "url": "http://httpbin.org/post"
+}
+
+INFO: 2020/07/25 01:07:55 batchservice.go:206: exiting the httpPost method
+INFO: 2020/07/25 01:07:55 batchservice.go:134: Completed Processing file: ../incoming_files/payer.txt
+INFO: 2020/07/25 01:07:55 batchservice.go:135: exiting the processfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:140: starting the backupfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:141: Backing up file: ../incoming_files/payer.txt
+INFO: 2020/07/25 01:07:55 batchservice.go:150: Backed up file name: ../incoming_files/payer.txt.processed_2020-07-25_01.07.55.895302000
+INFO: 2020/07/25 01:07:55 batchservice.go:151: exiting the backupfile method
+INFO: 2020/07/25 01:07:55 batchservice.go:97: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:07:55 batchservice.go:68: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 01:07:55 batchservice.go:95: No files found for ../incoming_files/plan*.txt
+INFO: 2020/07/25 01:07:55 batchservice.go:97: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:07:55 batchservice.go:236: Sleeping for 5 secs
+INFO: 2020/07/25 01:09:59 batchservice.go:213: starting the Main method
+INFO: 2020/07/25 01:09:59 batchservice.go:157: starting the loadconfigfile method
+INFO: 2020/07/25 01:09:59 batchservice.go:52: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 01:09:59 batchservice.go:64: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 01:09:59 batchservice.go:170: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 01:09:59 batchservice.go:172: Lenght of config: 3
+INFO: 2020/07/25 01:09:59 batchservice.go:176: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 01:09:59 batchservice.go:176: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 01:09:59 batchservice.go:176: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 01:09:59 batchservice.go:184: End loading the config.json values ..
+INFO: 2020/07/25 01:09:59 batchservice.go:185: exiting the loadconfigfile method
+INFO: 2020/07/25 01:09:59 batchservice.go:226: Proceed with scanning for files
+INFO: 2020/07/25 01:09:59 batchservice.go:69: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:09:59 batchservice.go:96: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:09:59 batchservice.go:98: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:09:59 batchservice.go:69: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 01:09:59 batchservice.go:96: No files found for ../incoming_files/payer*.txt
+INFO: 2020/07/25 01:09:59 batchservice.go:98: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:09:59 batchservice.go:69: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 01:09:59 batchservice.go:78: Found :  [../incoming_files/plan.txt]
+INFO: 2020/07/25 01:09:59 batchservice.go:103: starting the processfile method
+INFO: 2020/07/25 01:09:59 batchservice.go:104: Processing file: ../incoming_files/plan.txt appname: drgplan
+INFO: 2020/07/25 01:09:59 batchservice.go:124: record #: 0 : 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
+INFO: 2020/07/25 01:09:59 batchservice.go:190: starting the httpPost method
+ERROR: 2020/07/25 01:09:59 batchservice.go:197: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:09:59 batchservice.go:129: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:09:59 batchservice.go:85: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:09:59 batchservice.go:232: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 01:11:14 batchservice.go:213: starting the Main method
+INFO: 2020/07/25 01:11:14 batchservice.go:157: starting the loadconfigfile method
+INFO: 2020/07/25 01:11:14 batchservice.go:52: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 01:11:14 batchservice.go:64: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 01:11:14 batchservice.go:170: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 01:11:14 batchservice.go:172: Lenght of config: 3
+INFO: 2020/07/25 01:11:14 batchservice.go:176: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 01:11:14 batchservice.go:176: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 01:11:14 batchservice.go:176: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 01:11:14 batchservice.go:184: End loading the config.json values ..
+INFO: 2020/07/25 01:11:14 batchservice.go:185: exiting the loadconfigfile method
+INFO: 2020/07/25 01:11:14 batchservice.go:226: Proceed with scanning for files
+INFO: 2020/07/25 01:11:14 batchservice.go:69: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:11:14 batchservice.go:96: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 01:11:14 batchservice.go:98: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:11:14 batchservice.go:69: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 01:11:14 batchservice.go:96: No files found for ../incoming_files/payer*.txt
+INFO: 2020/07/25 01:11:14 batchservice.go:98: exiting the searchandprocess method successfully
+INFO: 2020/07/25 01:11:14 batchservice.go:69: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 01:11:14 batchservice.go:78: Found :  [../incoming_files/plan.txt]
+INFO: 2020/07/25 01:11:14 batchservice.go:103: starting the processfile method
+INFO: 2020/07/25 01:11:14 batchservice.go:104: Processing file: ../incoming_files/plan.txt appname: drgplan
+INFO: 2020/07/25 01:11:14 batchservice.go:124: record #: 0 : 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
+INFO: 2020/07/25 01:11:14 batchservice.go:190: starting the httpPost method
+ERROR: 2020/07/25 01:11:14 batchservice.go:197: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:11:14 batchservice.go:129: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:11:14 batchservice.go:85: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 01:11:14 batchservice.go:232: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host

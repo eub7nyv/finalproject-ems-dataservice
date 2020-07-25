@@ -17,10 +17,16 @@ import (
 
 const sleepTime = 5
 
+const consumerendpoint = "http://mckessonproducer:8081/mckesson/produce"
+
+//const consumerendpoint = "http://httpbin.org/post"
+
 type Config struct {
 	Filepath    string
 	Filepattern string
-	Topic       string
+	Appname     string
+	Ignorehdr   string
+	Fileformat  string
 }
 
 var (
@@ -59,7 +65,7 @@ func readconfigandreturnbytevalue() ([]byte, error) {
 	return file_byte_value, err
 }
 
-func searchandprocess(Filepath string, Filepattern string, Topic string) error {
+func searchandprocess(Filepath string, Filepattern string, Appname string, Ignorehdr string) error {
 	InfoLogger.Println("starting the searchandprocess method for " + Filepath + Filepattern)
 	matches, err := filepath.Glob(Filepath + Filepattern)
 	if err != nil {
@@ -73,7 +79,7 @@ func searchandprocess(Filepath string, Filepattern string, Topic string) error {
 		for _, file := range matches {
 			fmt.Println("\nFound : ", file)
 			// open each file and loop thru all records and call producer end point .. Once process, move the file too backup and add datetimestamp to the file
-			errp := processfile(file, Topic)
+			errp := processfile(file, Appname, Ignorehdr)
 			if errp != nil {
 				fmt.Println(errp)
 				ErrorLogger.Println(errp)
@@ -93,9 +99,9 @@ func searchandprocess(Filepath string, Filepattern string, Topic string) error {
 	return err
 }
 
-func processfile(file string, topic string) error {
+func processfile(file string, appname string, ignorehdr string) error {
 	InfoLogger.Println("starting the processfile method")
-	InfoLogger.Println("Processing file: " + file + " Topic: " + topic)
+	InfoLogger.Println("Processing file: " + file + " appname: " + appname)
 
 	dataFile, err := os.Open(file)
 	defer dataFile.Close()
@@ -104,7 +110,7 @@ func processfile(file string, topic string) error {
 		ErrorLogger.Println(err)
 		return err
 	}
-	//process above open file by looping thru all records one by one and calling producer service for each record along with topic
+	//process above open file by looping thru all records one by one and calling producer service for each record along with appName
 	fileScanner := bufio.NewScanner(dataFile)
 	fileScanner.Split(bufio.ScanLines)
 	var fileTextLines []string
@@ -116,7 +122,14 @@ func processfile(file string, topic string) error {
 	for i, eachline := range fileTextLines {
 		fmt.Println("record #: " + strconv.Itoa(i) + " : " + eachline)
 		InfoLogger.Println("record #: " + strconv.Itoa(i) + " : " + eachline)
-		// ??? Call producer end point and pass on each record/line along with Topic
+		if !(ignorehdr == "Y" && i == 0) { // if header record exists, then don't send first record
+			errp := httpPost(appname, eachline)
+			if errp != nil {
+				fmt.Println(errp)
+				ErrorLogger.Println(errp)
+				return errp
+			}
+		}
 	}
 
 	InfoLogger.Println("Completed Processing file: " + file)
@@ -159,9 +172,9 @@ func loadconfigfile() ([]Config, error) {
 	InfoLogger.Printf("Lenght of config: %+v", len(config))
 
 	for _, prop := range config {
-		fmt.Printf("\nconfig: %+v", prop.Filepath+prop.Filepattern+" "+prop.Topic)
-		InfoLogger.Printf("config: %+v", prop.Filepath+prop.Filepattern+" "+prop.Topic)
-		if prop.Filepath == "" || prop.Filepattern == "" || prop.Topic == "" {
+		fmt.Printf("\nconfig: %+v", prop.Filepath+prop.Filepattern+" "+prop.Appname)
+		InfoLogger.Printf("config: %+v", prop.Filepath+prop.Filepattern+" "+prop.Appname)
+		if prop.Filepath == "" || prop.Filepattern == "" || prop.Appname == "" || prop.Ignorehdr == "" || (prop.Ignorehdr != "Y" && prop.Ignorehdr != "N") || prop.Fileformat == "" || prop.Fileformat != "delimitedtext" {
 			fmt.Printf("\nInvalid Config file .. missing values")
 			ErrorLogger.Printf("Invalid Config file .. missing values")
 			return config, errors.New("Invalid Config file .. missing values")
@@ -173,25 +186,29 @@ func loadconfigfile() ([]Config, error) {
 	return config, err
 }
 
-func httpPost() {
-	//??? implement proper error handling
-	fmt.Println("Starting the application...")
+func httpPost(appname string, eachline string) error {
+	InfoLogger.Println("starting the httpPost method")
 
-	jsonData := map[string]string{"topicName": "Nic", "incomingMessage": "Raboy"}
+	jsonData := map[string]string{"appName": appname, "message": eachline}
 	jsonValue, _ := json.Marshal(jsonData)
-	response, err := http.Post("http://httpbin1.org/post", "application/json", bytes.NewBuffer(jsonValue))
+	response, err := http.Post(consumerendpoint, "application/json", bytes.NewBuffer(jsonValue))
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
+		ErrorLogger.Println(err)
+		return err
 	} else {
 		defer response.Body.Close()
 		data, _ := ioutil.ReadAll(response.Body)
+		InfoLogger.Println("consumerendpoint: " + consumerendpoint + " request: " + string(jsonValue))
+		InfoLogger.Println("response: " + string(data))
 		fmt.Println("response: " + string(data))
+
 	}
-	fmt.Println("Terminating the application...")
+	InfoLogger.Println("exiting the httpPost method")
+	return err
 }
 
 func main() {
-	httpPost() //??? remove after testing
 
 	InfoLogger.Println("starting the Main method")
 	// read config file and unmarshal values
@@ -209,7 +226,7 @@ func main() {
 			InfoLogger.Printf("Proceed with scanning for files")
 			for _, prop := range config {
 				// search for file(s) in folder and process them
-				err := searchandprocess(prop.Filepath, prop.Filepattern, prop.Topic)
+				err := searchandprocess(prop.Filepath, prop.Filepattern, prop.Appname, prop.Ignorehdr)
 				if err != nil {
 					fmt.Println(err)
 					ErrorLogger.Println(err)

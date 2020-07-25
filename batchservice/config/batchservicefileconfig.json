@@ -1,6 +1,6 @@
 [
-{"Filepath":"../incoming_files/","Filepattern":"drgdata*.txt","Topic":"DRGDATA"},
-{"Filepath":"../incoming_files/","Filepattern":"prsdata*.txt","Topic":"PRSDATA"},
-{"Filepath":"../incoming_files/","Filepattern":"payer*.txt","Topic":"PAYERDATA"},
-{"Filepath":"../incoming_files/","Filepattern":"plan*.txt","Topic":"PLANDATA"}
+{"Filepath":"../incoming_files/","Filepattern":"ncpdp*.csv","Appname":"ncpdp","Ignorehdr":"Y","Fileformat":"delimitedtext"},
+{"Filepath":"../incoming_files/","Filepattern":"payer*.txt","Appname":"drgpayer","Ignorehdr":"Y","Fileformat":"delimitedtext"},
+{"Filepath":"../incoming_files/","Filepattern":"plan*.txt","Appname":"drgplan","Ignorehdr":"N","Fileformat":"delimitedtext"}
+
 ]
