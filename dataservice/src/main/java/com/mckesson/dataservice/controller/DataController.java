@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mckesson.dataservice.bean.DRGPayerBean;
 import com.mckesson.dataservice.bean.DRGPlanBean;
+import com.mckesson.dataservice.bean.NCPDPBean;
 import com.mckesson.dataservice.entity.ConsumerConstants;
 import com.mckesson.dataservice.entity.Message;
 import com.mckesson.dataservice.service.ConsumerDataService;
@@ -50,18 +51,41 @@ public class DataController {
 	         String topic =msg.getAppName();
 	    	 log.info("Topic Name>>>>>"+topic+"<< In Coming Message >>>"+msg.getIncomingMessage());
 	    	 String statusMessage = null;
-	        if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_DRG_PAYER)){
+	       /* if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_DRG_PAYER)){
 	        	log.info("In side Tipic >>>>>"+topic);
 	        	statusMessage = consumerDataService.insertDRGPayerConsumerData(msg.getIncomingMessage());
 	                log.info("After Save Data >>>>>");
-
 	            }else if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_DRG_PLAN)){
+	            	log.info("In side Tipic >>>>>"+topic);
+	            	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
+	                log.info("After Save Data >>>>>");
+	            }else if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_NCPDP)){
 	            	log.info("In side Tipic >>>>>"+topic);
 	            	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
 	                log.info("After Save Data >>>>>");
 	            }else {
 	                log.info("No Other Topics are defined>>>>>");
-	            }
+	            }*/
+	        
+	        
+	        
+	        switch (topic) {
+	        case ConsumerConstants.TOPIC_DRG_PAYER:
+	        	statusMessage = consumerDataService.insertDRGPayerConsumerData(msg.getIncomingMessage()); 
+	            break;
+	        case ConsumerConstants.TOPIC_DRG_PLAN:
+	        	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
+	            break;
+	        case ConsumerConstants.TOPIC_NCPDP:
+	        	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
+	            break;
+	        default:
+	        	statusMessage = topic+": Topic Name is not configured";
+	            break;
+	    }
+	        
+	        
+	        
 	     
 	        return statusMessage;
 
@@ -71,8 +95,7 @@ public class DataController {
 	    
 	    
 	    @RequestMapping(value= "/mckesson/listofMessages/drgpayer")
-	    public List<DRGPayerBean> getAllDRGPayerData() throws Exception {
-	    	//List<DRGPayerBean> listPayer =new ArrayList()<DRGPayerBean>();
+	    public List<?> getAllDRGPayerData() throws Exception {
 	    	List<DRGPayerBean> listPayer =new ArrayList<DRGPayerBean>();
 	    	log.info("In sdie getAllDRGPayerData  Retrive Data >>>>>");
 	        listPayer= consumerDataService.getAllDRGPayerConsumerDataList();
@@ -82,10 +105,19 @@ public class DataController {
 	    }
 	    
 	    @RequestMapping(value= "/mckesson/listofMessages/drgplan")
-	    public List<DRGPlanBean> getAlldrgPlanData() throws Exception {
+	    public List<DRGPlanBean> getAllDrgPlanData() throws Exception {
 	    	log.info("In sdie getAlldrgPlanData  Retrive Data >>>>>");
 	    	List<DRGPlanBean> listPayer =new ArrayList<DRGPlanBean>();
 	    	listPayer=  consumerDataService.getAllDRGPlanConsumerDataList();
+	        log.info("After Retrive Data >>>>>");
+	        return listPayer;
+	    }
+	    
+	    @RequestMapping(value= "/mckesson/listofMessages/ncpdp")
+	    public List<NCPDPBean> getAllNcpdpPlanData() throws Exception {
+	    	log.info("In sdie getAllNcpdpPlanData  Retrive Data >>>>>");
+	    	List<NCPDPBean> listPayer =new ArrayList<NCPDPBean>();
+	    	listPayer=  consumerDataService.getAllNCPDPConsumerDataList();
 	        log.info("After Retrive Data >>>>>");
 	        return listPayer;
 	    }

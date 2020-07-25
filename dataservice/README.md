@@ -41,6 +41,11 @@ Parameters:
 Message object contains
  1. TopicName
  2. Message
+ 
+ # Google Cloud Database Configuration
+ IP # 34.94.201.2
+ Database:KafkaDb
+ 
 
 
 
