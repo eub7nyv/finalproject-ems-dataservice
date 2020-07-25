@@ -51,24 +51,6 @@ public class DataController {
 	         String topic =msg.getAppName();
 	    	 log.info("Topic Name>>>>>"+topic+"<< In Coming Message >>>"+msg.getIncomingMessage());
 	    	 String statusMessage = null;
-	       /* if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_DRG_PAYER)){
-	        	log.info("In side Tipic >>>>>"+topic);
-	        	statusMessage = consumerDataService.insertDRGPayerConsumerData(msg.getIncomingMessage());
-	                log.info("After Save Data >>>>>");
-	            }else if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_DRG_PLAN)){
-	            	log.info("In side Tipic >>>>>"+topic);
-	            	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
-	                log.info("After Save Data >>>>>");
-	            }else if(topic.equalsIgnoreCase(ConsumerConstants.TOPIC_NCPDP)){
-	            	log.info("In side Tipic >>>>>"+topic);
-	            	statusMessage = consumerDataService.insertDRGPlanConsumerData(msg.getIncomingMessage());
-	                log.info("After Save Data >>>>>");
-	            }else {
-	                log.info("No Other Topics are defined>>>>>");
-	            }*/
-	        
-	        
-	        
 	        switch (topic) {
 	        case ConsumerConstants.TOPIC_DRG_PAYER:
 	        	statusMessage = consumerDataService.insertDRGPayerConsumerData(msg.getIncomingMessage()); 
