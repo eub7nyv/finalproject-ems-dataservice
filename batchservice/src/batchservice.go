@@ -16,9 +16,9 @@ import (
 )
 
 const sleepTime = 5
-const consumerendpoint = "http://mckessonproducer:8081/mckesson/produce"
+const producerEndPoint = "http://mckessonproducer:8081/mckesson/produce"
 
-//const consumerendpoint = "http://httpbin.org/post"
+//const producerEndPoint = "http://httpbin.org/post"
 
 type Config struct {
 	Filepath    string
@@ -51,7 +51,7 @@ func httpPost(appname string, eachline string) error {
 
 	jsonData := map[string]string{"appName": appname, "message": eachline}
 	jsonValue, _ := json.Marshal(jsonData)
-	response, err := http.Post(consumerendpoint, "application/json", bytes.NewBuffer(jsonValue))
+	response, err := http.Post(producerEndPoint, "application/json", bytes.NewBuffer(jsonValue))
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
 		ErrorLogger.Println(err)
@@ -59,7 +59,7 @@ func httpPost(appname string, eachline string) error {
 	} else {
 		defer response.Body.Close()
 		data, _ := ioutil.ReadAll(response.Body)
-		InfoLogger.Println("consumerendpoint: " + consumerendpoint + " request: " + string(jsonValue))
+		InfoLogger.Println("producerEndPoint: " + producerEndPoint + " request: " + string(jsonValue))
 		InfoLogger.Println("response: " + string(data))
 		fmt.Println("response: " + string(data))
 
@@ -68,7 +68,7 @@ func httpPost(appname string, eachline string) error {
 	return err
 }
 
-func backupfile(file string) error {
+func backupFile(file string) error {
 	InfoLogger.Println("starting the backupfile method")
 	InfoLogger.Println("Backing up file: " + file)
 	currentTime := time.Now()
@@ -84,7 +84,7 @@ func backupfile(file string) error {
 	return err
 }
 
-func processfile(file string, appname string, ignorehdr string) error {
+func processFile(file string, appname string, ignorehdr string) error {
 	InfoLogger.Println("starting the processfile method")
 	InfoLogger.Println("Processing file: " + file + " appname: " + appname)
 
@@ -122,7 +122,7 @@ func processfile(file string, appname string, ignorehdr string) error {
 	return err
 }
 
-func searchandprocess(Filepath string, Filepattern string, Appname string, Ignorehdr string) error {
+func searchAndProcess(Filepath string, Filepattern string, Appname string, Ignorehdr string) error {
 	InfoLogger.Println("starting the searchandprocess method for " + Filepath + Filepattern)
 	matches, err := filepath.Glob(Filepath + Filepattern)
 	if err != nil {
@@ -136,13 +136,13 @@ func searchandprocess(Filepath string, Filepattern string, Appname string, Ignor
 		for _, file := range matches {
 			fmt.Println("\nFound : ", file)
 			// open each file and loop thru all records and call producer end point .. Once process, move the file too backup and add datetimestamp to the file
-			errp := processfile(file, Appname, Ignorehdr)
+			errp := processFile(file, Appname, Ignorehdr)
 			if errp != nil {
 				fmt.Println(errp)
 				ErrorLogger.Println(errp)
 				return errp
 			}
-			errb := backupfile(file)
+			errb := backupFile(file)
 			if errb != nil {
 				fmt.Println(errb)
 				ErrorLogger.Println(errb)
@@ -157,7 +157,7 @@ func searchandprocess(Filepath string, Filepattern string, Appname string, Ignor
 }
 
 // read config file and return all configuration
-func readconfigandreturnbytevalue() ([]byte, error) {
+func readConfigAndReturnByteValue() ([]byte, error) {
 	InfoLogger.Println("starting the readconfigandreturnbytevalue method")
 	var byte_value []byte
 	jsonFile, err := os.Open("../config/batchservicefileconfig.json")
@@ -174,11 +174,11 @@ func readconfigandreturnbytevalue() ([]byte, error) {
 	return file_byte_value, err
 }
 
-func loadconfigfile() ([]Config, error) {
+func loadConfigFile() ([]Config, error) {
 	InfoLogger.Println("starting the loadconfigfile method")
 	// read config file and unmarshal values
 	var config []Config
-	byteValue, err := readconfigandreturnbytevalue()
+	byteValue, err := readConfigAndReturnByteValue()
 	if err != nil {
 		fmt.Println(err)
 		ErrorLogger.Println(err)
@@ -211,7 +211,7 @@ func main() {
 
 	InfoLogger.Println("starting the Main method")
 	// read config file and unmarshal values
-	config, err := loadconfigfile()
+	config, err := loadConfigFile()
 	if err != nil {
 		fmt.Println(err)
 		ErrorLogger.Println(err)
@@ -225,7 +225,7 @@ func main() {
 			InfoLogger.Printf("Proceed with scanning for files")
 			for _, prop := range config {
 				// search for file(s) in folder and process them
-				err := searchandprocess(prop.Filepath, prop.Filepattern, prop.Appname, prop.Ignorehdr)
+				err := searchAndProcess(prop.Filepath, prop.Filepattern, prop.Appname, prop.Ignorehdr)
 				if err != nil {
 					fmt.Println(err)
 					ErrorLogger.Println(err)

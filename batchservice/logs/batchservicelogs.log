@@ -238,3 +238,227 @@ ERROR: 2020/07/25 16:33:50 batchservice.go:57: Post "http://mckessonproducer:808
 ERROR: 2020/07/25 16:33:50 batchservice.go:114: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
 ERROR: 2020/07/25 16:33:50 batchservice.go:142: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
 ERROR: 2020/07/25 16:33:50 batchservice.go:231: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 17:05:18 batchservice.go:212: starting the Main method
+INFO: 2020/07/25 17:05:18 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:05:18 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:05:18 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:05:18 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:05:18 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:05:18 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:05:18 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:05:18 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:05:18 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:05:18 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 17:05:18 batchservice.go:225: Proceed with scanning for files
+INFO: 2020/07/25 17:05:18 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 17:05:18 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 17:05:18 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 17:05:18 batchservice.go:126: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 17:05:18 batchservice.go:153: No files found for ../incoming_files/payer*.txt
+INFO: 2020/07/25 17:05:18 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 17:05:18 batchservice.go:126: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 17:05:18 batchservice.go:135: Found :  [../incoming_files/plan.txt]
+INFO: 2020/07/25 17:05:18 batchservice.go:88: starting the processfile method
+INFO: 2020/07/25 17:05:18 batchservice.go:89: Processing file: ../incoming_files/plan.txt appname: drgplan
+INFO: 2020/07/25 17:05:18 batchservice.go:109: record #: 0 : 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
+INFO: 2020/07/25 17:05:18 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 17:05:18 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 17:05:18 batchservice.go:114: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 17:05:18 batchservice.go:142: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 17:05:18 batchservice.go:231: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 17:20:07 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:20:07 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:20:07 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:20:07 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:20:07 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:20:07 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:20:07 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:20:07 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:20:07 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:20:07 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 17:20:59 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:20:59 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:20:59 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:20:59 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:20:59 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:20:59 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:20:59 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:20:59 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:20:59 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:20:59 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 17:23:07 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:23:07 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:23:07 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:23:07 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:23:07 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:23:07 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:23:07 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:23:07 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:23:07 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:23:07 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 17:23:24 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:23:24 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:23:24 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:23:24 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:23:24 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:23:24 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:23:24 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:23:24 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:23:24 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:23:24 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 17:23:36 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 17:23:36 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 17:23:36 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 17:23:36 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 17:23:36 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 17:23:36 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 17:23:36 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 17:23:36 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 17:23:36 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 17:23:36 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:16:13 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:16:13 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:16:13 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:16:13 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:16:13 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:16:13 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:16:13 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:16:13 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:16:13 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:16:13 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:16:13 batchservice.go:126: starting the searchandprocess method for ../incoming_files1/ncpdp*.csv
+INFO: 2020/07/25 18:16:13 batchservice.go:153: No files found for ../incoming_files1/ncpdp*.csv
+INFO: 2020/07/25 18:16:13 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:16:13 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:16:13 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:17:01 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:17:01 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:17:01 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:17:01 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:17:01 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:17:01 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:17:01 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:17:01 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:17:01 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:17:01 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:17:01 batchservice.go:126: starting the searchandprocess method for ../incoming_files1/ncpdp*.csv
+INFO: 2020/07/25 18:17:01 batchservice.go:153: No files found for ../incoming_files1/ncpdp*.csv
+INFO: 2020/07/25 18:17:01 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:17:01 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:17:01 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:20:26 batchservice.go:212: starting the Main method
+INFO: 2020/07/25 18:20:26 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:20:26 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:20:26 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:20:26 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files11/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:20:26 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:20:26 batchservice.go:197: config: ../incoming_files11/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:20:26 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:20:26 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:20:26 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:20:26 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:20:26 batchservice.go:225: Proceed with scanning for files
+INFO: 2020/07/25 18:20:26 batchservice.go:126: starting the searchandprocess method for ../incoming_files11/ncpdp*.csv
+INFO: 2020/07/25 18:20:26 batchservice.go:153: No files found for ../incoming_files11/ncpdp*.csv
+INFO: 2020/07/25 18:20:26 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:20:26 batchservice.go:126: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 18:20:26 batchservice.go:153: No files found for ../incoming_files/payer*.txt
+INFO: 2020/07/25 18:20:26 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:20:26 batchservice.go:126: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 18:20:26 batchservice.go:135: Found :  [../incoming_files/plan.txt]
+INFO: 2020/07/25 18:20:26 batchservice.go:88: starting the processfile method
+INFO: 2020/07/25 18:20:26 batchservice.go:89: Processing file: ../incoming_files/plan.txt appname: drgplan
+INFO: 2020/07/25 18:20:26 batchservice.go:109: record #: 0 : 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
+INFO: 2020/07/25 18:20:26 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:20:26 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:20:26 batchservice.go:114: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:20:26 batchservice.go:142: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:20:26 batchservice.go:231: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:30:41 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:30:41 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:30:41 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:30:41 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:30:41 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:30:41 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:30:41 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:30:41 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:30:41 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:30:41 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:30:41 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:30:41 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:30:41 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:30:41 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:30:41 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:31:02 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:31:02 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:31:02 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:31:02 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:31:02 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:31:02 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:31:02 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:31:02 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:31:02 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:31:02 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:31:02 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:31:02 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:31:02 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:31:02 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:31:02 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:32:18 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:32:18 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:32:18 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:32:18 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:32:18 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:32:18 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:32:18 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:32:18 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:32:18 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:32:18 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:32:18 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:32:18 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:32:18 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:32:18 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:32:18 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:32:43 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:32:43 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:32:43 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:32:43 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:32:43 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:32:43 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:32:43 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:32:43 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:32:43 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:32:43 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:32:43 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:32:43 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:32:43 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:32:43 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:32:43 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+INFO: 2020/07/25 18:33:17 batchservice.go:212: starting the Main method
+INFO: 2020/07/25 18:33:17 batchservice.go:178: starting the loadconfigfile method
+INFO: 2020/07/25 18:33:17 batchservice.go:161: starting the readconfigandreturnbytevalue method
+INFO: 2020/07/25 18:33:17 batchservice.go:173: exiting the readconfigandreturnbytevalue method successfully before return statement
+INFO: 2020/07/25 18:33:17 batchservice.go:191: Full list of config values: [{Filepath:../incoming_files/ Filepattern:ncpdp*.csv Appname:ncpdp Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:payer*.txt Appname:drgpayer Ignorehdr:Y Fileformat:delimitedtext} {Filepath:../incoming_files/ Filepattern:plan*.txt Appname:drgplan Ignorehdr:N Fileformat:delimitedtext}]
+INFO: 2020/07/25 18:33:17 batchservice.go:193: Lenght of config: 3
+INFO: 2020/07/25 18:33:17 batchservice.go:197: config: ../incoming_files/ncpdp*.csv ncpdp
+INFO: 2020/07/25 18:33:17 batchservice.go:197: config: ../incoming_files/payer*.txt drgpayer
+INFO: 2020/07/25 18:33:17 batchservice.go:197: config: ../incoming_files/plan*.txt drgplan
+INFO: 2020/07/25 18:33:17 batchservice.go:205: End loading the config.json values ..
+INFO: 2020/07/25 18:33:17 batchservice.go:206: exiting the loadconfigfile method
+INFO: 2020/07/25 18:33:17 batchservice.go:225: Proceed with scanning for files
+INFO: 2020/07/25 18:33:17 batchservice.go:126: starting the searchandprocess method for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:33:17 batchservice.go:153: No files found for ../incoming_files/ncpdp*.csv
+INFO: 2020/07/25 18:33:17 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:33:17 batchservice.go:126: starting the searchandprocess method for ../incoming_files/payer*.txt
+INFO: 2020/07/25 18:33:17 batchservice.go:153: No files found for ../incoming_files/payer*.txt
+INFO: 2020/07/25 18:33:17 batchservice.go:155: exiting the searchandprocess method successfully
+INFO: 2020/07/25 18:33:17 batchservice.go:126: starting the searchandprocess method for ../incoming_files/plan*.txt
+INFO: 2020/07/25 18:33:17 batchservice.go:135: Found :  [../incoming_files/plan.txt]
+INFO: 2020/07/25 18:33:17 batchservice.go:88: starting the processfile method
+INFO: 2020/07/25 18:33:17 batchservice.go:89: Processing file: ../incoming_files/plan.txt appname: drgplan
+INFO: 2020/07/25 18:33:17 batchservice.go:109: record #: 0 : 140|17629|Elderplan Advantage For Nursing Home Residents |Medicare|Medicare SN|Y|N|N
+INFO: 2020/07/25 18:33:17 batchservice.go:50: starting the httpPost method
+ERROR: 2020/07/25 18:33:17 batchservice.go:57: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:33:17 batchservice.go:114: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:33:17 batchservice.go:142: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
+ERROR: 2020/07/25 18:33:17 batchservice.go:231: Post "http://mckessonproducer:8081/mckesson/produce": dial tcp: lookup mckessonproducer: no such host
