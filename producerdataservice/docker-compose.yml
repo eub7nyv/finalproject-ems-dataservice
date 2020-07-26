@@ -16,7 +16,7 @@
 version: "3.1"
 
 services:
-  dataservice:
+  producerdataservice:
     build: './'
     stdin_open: true
     tty: true
@@ -25,7 +25,7 @@ services:
     depends_on:
        - dbpostgresql
     environment:
-      CONSUMER_ID: docker-compose-dataservice
+      CONSUMER_ID: docker-compose-producerdataservice
     networks:
       - kafka
       
@@ -43,4 +43,4 @@ services:
 networks:
   kafka:
     external:
-      name: dockerized-kafka_kafka # see https://github.com/jbariel/dockerized-kafka
+      name: dockerized-kafka_kafka # see https://github.com/anoop-git/dockerized-kafka

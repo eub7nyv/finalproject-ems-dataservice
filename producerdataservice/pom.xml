@@ -8,10 +8,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mckesson</groupId>
-	<artifactId>producerdataservice</artifactId>
+	<artifactId>ProducerDataService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>producerdataservice</name>
-	<description>producerdataservice project with Spring Boot</description>
+	<name>ProducerDataService</name>
+	<description>ProducerDataService project with Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
