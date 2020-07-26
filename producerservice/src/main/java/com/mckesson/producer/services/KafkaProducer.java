@@ -17,10 +17,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class KafkaProducer {
-    private static final Logger logger = LoggerFactory.getLogger(KafkaProducer.class);
+
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
+
+    private static final Logger logger = LoggerFactory.getLogger(KafkaProducer.class);
 
     public void sendMessage(Message message) {
         logger.info(String.format("$$ -> Producing message --> %s", message));
@@ -44,6 +46,7 @@ public class KafkaProducer {
             }
 
             if(StringUtils.isNotBlank(KAFKA_TOPIC)){
+
                 this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage());
                 logger.info("Message Recieved......   " + " Topic Name:::" + KAFKA_TOPIC + "Incoming Message: "
                         + message.getIncomingMessage());

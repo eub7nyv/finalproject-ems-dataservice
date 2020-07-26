@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.mckesson.producer.config.KafkaConfiguration;
 import com.mckesson.producer.controller.MckessonController;
-import com.mckesson.producer.dto.PayloadDTO;
 import com.mckesson.producer.entities.Message;
 import com.mckesson.producer.services.KafkaProducer;
-import com.mckesson.producer.services.MessageService;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -34,9 +32,6 @@ class MckessonProducerApplicationTests {
 	@Autowired
 	private KafkaProducer kafkaProducer;
 
-	@Autowired
-	private MessageService messageService;
-	
 
 	private static final Logger log = LoggerFactory.getLogger(MckessonProducerApplicationTests.class);
 
@@ -101,14 +96,4 @@ class MckessonProducerApplicationTests {
 		log.info("8.............../mckesson/produce end point with json ..........................: Failed: Bad application name");
 	}
 
-
-	/* ================= Test Cases for  MessageService ====================*/
-	//@Test
-	public void testSave() {
-		PayloadDTO payloadDTO = new PayloadDTO();
-		payloadDTO.setApplicationName("TestCase");
-		payloadDTO.setIncomingMessage("incomingMessage from test case");
-		messageService.save(payloadDTO);
-		log.info("9...............Save in DB ..........................: Success: Saved in Database");
-	}
 }
