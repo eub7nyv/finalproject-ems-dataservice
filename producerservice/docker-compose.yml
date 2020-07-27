@@ -28,6 +28,12 @@ services:
       PRODUCER_ID: docker-compose-producer
     networks:
       - kafka
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.19.0.10:5000"
+        tag: docker.{{.Name}}
+        env: SERVICE_NAME,DEPLOY_ENV
 
 
 networks:
