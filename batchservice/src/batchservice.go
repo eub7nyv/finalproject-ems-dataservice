@@ -34,6 +34,11 @@ var (
 	ErrorLogger   *log.Logger
 )
 
+type Message struct {
+	Appname string `jason:"appName"`
+	Message string `json:"incomingMessage"`
+}
+
 // initialize the logger
 func init() {
 	file, err := os.OpenFile("../logs/batchservicelogs.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
@@ -49,9 +54,11 @@ func init() {
 func httpPost(appname string, eachline string) error {
 	InfoLogger.Println("starting the httpPost method")
 
-	jsonData := map[string]string{"appName": appname, "message": eachline}
-	jsonValue, _ := json.Marshal(jsonData)
-	response, err := http.Post(producerEndPoint, "application/json", bytes.NewBuffer(jsonValue))
+	//jsonData := map[string]string{"appName": appname, "message": eachline}
+	message := Message{appname, eachline}
+	//jsonValue, _ := json.Marshal(jsonData)
+	jsonReq, err := json.Marshal(message)
+	response, err := http.Post(producerEndPoint, "application/json", bytes.NewBuffer(jsonReq))
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
 		ErrorLogger.Println(err)
@@ -59,7 +66,7 @@ func httpPost(appname string, eachline string) error {
 	} else {
 		defer response.Body.Close()
 		data, _ := ioutil.ReadAll(response.Body)
-		InfoLogger.Println("producerEndPoint: " + producerEndPoint + " request: " + string(jsonValue))
+		InfoLogger.Println("producerEndPoint: " + producerEndPoint + " request: " + string(jsonReq))
 		InfoLogger.Println("response: " + string(data))
 		fmt.Println("response: " + string(data))
 
