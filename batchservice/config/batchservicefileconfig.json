@@ -1,0 +1,6 @@
+[
+{"Filepath":"../incoming_files/","Filepattern":"ncpdp*.csv","Appname":"ncpdp","Ignorehdr":"Y","Fileformat":"delimitedtext"},
+{"Filepath":"../incoming_files/","Filepattern":"payer*.txt","Appname":"drgpayer","Ignorehdr":"Y","Fileformat":"delimitedtext"},
+{"Filepath":"../incoming_files/","Filepattern":"plan*.txt","Appname":"drgplan","Ignorehdr":"N","Fileformat":"delimitedtext"}
+
+]
