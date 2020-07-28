@@ -20,13 +20,7 @@ public class Message {
     private Long id;
     private String applicationName;
     private String incomingMessage;
-    private boolean sendStatus;
 
-    public Message(String applicationName, String incomingMessage, boolean sendStatus) {
-        this.applicationName = applicationName;
-        this.incomingMessage = incomingMessage;
-        this.sendStatus = sendStatus;
-    }
 
     public Message() {
     }
@@ -55,12 +49,6 @@ public class Message {
         this.incomingMessage = incomingMessage;
     }
 
-    public boolean isSendStatus() {
-        return sendStatus;
-    }
 
-    public void setSendStatus(boolean sendStatus) {
-        this.sendStatus = sendStatus;
-    }
 
 }
