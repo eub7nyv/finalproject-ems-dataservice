@@ -163,7 +163,13 @@ func (e errRepoNotFound) Error() string {
 func parseParams(req *http.Request, prefix string, num int) ([]string, error) {
 	url := strings.TrimPrefix(req.URL.Path, prefix)
 	params := strings.Split(url, "/")
-	if len(params) != num || len(params[0]) == 0 {
+
+	fmt.Println(url)
+	for i := range params {
+		fmt.Println(params[i])
+	}
+
+	if len(params) != num {
 		return nil, fmt.Errorf("Bad format. %d Expecting exactly %d params", len(params), num)
 	}
 	return params, nil
@@ -171,7 +177,6 @@ func parseParams(req *http.Request, prefix string, num int) ([]string, error) {
 
 // repoHandler processes the response by parsing the params, then calling
 func payerHandler(w http.ResponseWriter, req *http.Request) {
-	//repo := Payer{}
 	params, err := parseParams(req, "/payer/", 1)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnauthorized)
@@ -184,8 +189,7 @@ func payerHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	var searchType = "PayerId"
-	var name = ""
-	data, err := searchResultPayer(searchType, name, i)
+	data, err := searchResultPayer(searchType, "", i)
 	if err != nil {
 		switch err.(type) {
 		case errRepoNotFound:
@@ -197,7 +201,61 @@ func payerHandler(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
+	out, err := json.Marshal(data)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	fmt.Fprintf(w, string(out))
 
+	// var planBool = false //as default
+	// if len(data) == 1 && planBool {
+	// 	plan, err := searchResultPlan("PlanPayerId", "", data[0].PayerId)
+	// 	if err != nil {
+	// 		switch err.(type) {
+	// 		case errRepoNotFound:
+	// 			http.Error(w, err.Error(), 404)
+	// 		case errRepoNotInitialized:
+	// 			http.Error(w, err.Error(), 401)
+	// 		default:
+	// 			http.Error(w, err.Error(), 500)
+	// 		}
+	// 		return
+	// 	}
+	// 	outPlan, err := json.Marshal(plan)
+	// 	if err != nil {
+	// 		http.Error(w, err.Error(), 500)
+	// 		return
+	// 	}
+	// 	fmt.Fprintf(w, string(outPlan))
+	// }
+}
+
+func planHandler(w http.ResponseWriter, req *http.Request) {
+	params, err := parseParams(req, "/plan/", 1)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusUnauthorized)
+		return
+	}
+
+	i, err := strconv.Atoi(params[0])
+	if err != nil {
+		http.Error(w, err.Error(), 404)
+	}
+
+	var searchType = "PlanId"
+	data, err := searchResultPlan(searchType, "", i)
+	if err != nil {
+		switch err.(type) {
+		case errRepoNotFound:
+			http.Error(w, err.Error(), 404)
+		case errRepoNotInitialized:
+			http.Error(w, err.Error(), 401)
+		default:
+			http.Error(w, err.Error(), 500)
+		}
+		return
+	}
 	out, err := json.Marshal(data)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -263,13 +321,16 @@ func main() {
 	if nil != err2 {
 		fmt.Println(err2)
 	}
-	if planPayerId == plan2[0].payerId {
-		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].payerId))
+	if planPayerId == plan2[0].PayerId {
+		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].PayerId))
 	}
 
 	//http.HandleFunc("/api/index", indexHandler)
 	http.HandleFunc("/coal-mine/", coalmineHandler)
 	http.HandleFunc("/payer/", payerHandler)
+	http.HandleFunc("/payerplan/", payerHandler)
+	http.HandleFunc("/plan/", planHandler)
+	//http.HandleFunc("/payer/name", payerHandler)
 	log.Fatal(http.ListenAndServe("localhost:8001", nil))
 
 	// log.Println("Server started on: http://localhost:8081")

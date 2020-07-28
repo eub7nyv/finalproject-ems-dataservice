@@ -46,8 +46,8 @@ func TestSearchResultPlan(t *testing.T) {
 	if nil != err {
 		t.Error(err)
 	}
-	if planId == plan[0].planId {
-		fmt.Println("id " + strconv.Itoa(planId) + " matched expection id from DB " + strconv.Itoa(plan[0].planId))
+	if planId == plan[0].PlanId {
+		fmt.Println("id " + strconv.Itoa(planId) + " matched expection id from DB " + strconv.Itoa(plan[0].PlanId))
 	}
 
 	searchType = "PlanPayerId"
@@ -62,8 +62,8 @@ func TestSearchResultPlan(t *testing.T) {
 	if nil != err2 {
 		fmt.Println(err2)
 	}
-	if planPayerId == plan2[0].payerId {
-		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].payerId))
+	if planPayerId == plan2[0].PayerId {
+		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].PayerId))
 	}
 
 	searchType = "PlanName"
@@ -78,7 +78,7 @@ func TestSearchResultPlan(t *testing.T) {
 	if nil != err3 {
 		fmt.Println(err)
 	}
-	if planName == plan3[0].planName {
-		fmt.Println("input " + planName + " matches expected from DB " + plan3[0].planName)
+	if planName == plan3[0].PlanName {
+		fmt.Println("input " + planName + " matches expected from DB " + plan3[0].PlanName)
 	}
 }

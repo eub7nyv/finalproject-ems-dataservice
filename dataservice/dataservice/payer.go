@@ -18,15 +18,15 @@ type Payer struct {
 }
 
 type Plan struct {
-	id       int
-	payerId  int
-	planId   int
-	planName string
-	segment  string
-	planType string
-	ppo      string
-	hmo      string
-	pos      string
+	Id       int    `json:"id"`
+	PayerId  int    `json:"payerId"`
+	PlanId   int    `json:"planId"`
+	PlanName string `json:"planName"`
+	Segment  string `json:"segment"`
+	PlanType string `json:"planType"`
+	Ppo      string `json:"ppo"`
+	Hmo      string `json:"hmo"`
+	Pos      string `json:"pos"`
 }
 
 type PayerPlan struct {
@@ -75,7 +75,7 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 		//var i = 0
 		for rows.Next() {
 			var plan Plan
-			err = rows.Scan(&plan.id, &plan.payerId, &plan.planId, &plan.planName, &plan.segment, &plan.planType, &plan.ppo, &plan.hmo, &plan.pos)
+			err = rows.Scan(&plan.Id, &plan.PayerId, &plan.PlanId, &plan.PlanName, &plan.Segment, &plan.PlanType, &plan.Ppo, &plan.Hmo, &plan.Pos)
 			if err != nil {
 				panic(err)
 			}
