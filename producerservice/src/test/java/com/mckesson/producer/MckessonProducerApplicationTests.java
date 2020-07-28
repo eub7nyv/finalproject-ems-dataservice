@@ -9,12 +9,12 @@ import com.mckesson.producer.entities.Message;
 import com.mckesson.producer.services.KafkaProducer;
 
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 
+@Slf4j
 @ComponentScan("com.mckesson.producer")
 @SpringBootTest
 class MckessonProducerApplicationTests {
@@ -33,18 +33,16 @@ class MckessonProducerApplicationTests {
 	private KafkaProducer kafkaProducer;
 
 
-	private static final Logger log = LoggerFactory.getLogger(MckessonProducerApplicationTests.class);
-
 /* ================= Test Cases for  MckessonController====================*/
 	@Test
 	public void testHome() {
-		log.info("1...............Test Default end point....." +mckController.home());
+		log.info("1...............Test Default end point.....{}" , mckController.home());
 		assertNotNull(mckController.test());
 	}
 
 	@Test
 	public void testTest() {
-		log.info("2...............Test Rest end point URL......." +mckController.test());
+		log.info("2...............Test Rest end point URL.......{}" ,mckController.test());
 		assertNotNull(mckController.test());
 	}
 
@@ -67,13 +65,13 @@ class MckessonProducerApplicationTests {
 
 	@Test
 	public void testProducerConfigurations() {
-		log.info("5...............Test KafkaConfiguration producerConfigurations. ................................" +kafkaConfiguration.producerConfigurations());
+		log.info("5...............Test KafkaConfiguration producerConfigurations. ................................{}" , kafkaConfiguration.producerConfigurations());
 		assertNotNull(kafkaConfiguration.producerConfigurations());
 	}
 
 	@Test
 	public void testKafkaTemplate() {
-		log.info("6...............Test KafkaConfiguration kafkaTemplate.... ............................." +kafkaConfiguration.kafkaTemplate());
+		log.info("6...............Test KafkaConfiguration kafkaTemplate.... .............................{}" ,kafkaConfiguration.kafkaTemplate());
 		assertNotNull(kafkaConfiguration.kafkaTemplate());
 	}
 
