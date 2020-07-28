@@ -63,7 +63,7 @@ func TestSearchResultPlan(t *testing.T) {
 		fmt.Println(err2)
 	}
 	if planPayerId == plan2[0].payerId {
-		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan[0].payerId))
+		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].payerId))
 	}
 
 	searchType = "PlanName"

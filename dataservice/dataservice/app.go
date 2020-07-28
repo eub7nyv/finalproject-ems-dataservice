@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"io/ioutil"
@@ -8,8 +9,10 @@ import (
 	"net/http"
 	"regexp"
 	"strconv"
+	"strings"
 
 	//_ "github.com/gobuffalo/packr"
+
 	_ "github.com/lib/pq"
 )
 
@@ -43,7 +46,7 @@ func errorHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 /*
-func coalmineJasonHandler(w http.ResponseWriter, r *http.Request, user User) {
+func coalmineJasonHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Tweet! %s\n")
 	b, err := json.Marshal(user)
 	if err != nil {
@@ -69,7 +72,14 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 */
 
-//var templates = template.Must(template.ParseFiles("form/viewTemplate.tmpl"))
+//var templates = template.Must(template.ParseFiles("Index.tmpl", "Show.tmpl", "New.tmpl", "Edit.tmpl"))
+var (
+	templates = template.Must(template.ParseFiles("Index.tmpl"))
+)
+
+//var templates = template.Must(template.ParseFiles("editTemplate.html", "viewTemplate.html"))
+
+//var templates = template.Must(template.ParseFiles("template/viewTemplate.tmpl"))
 /*
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
@@ -92,27 +102,23 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "Index", payer)
-
-	//tmpl := "index.html"
-	//templates.ExecuteTemplate(w, tmpl, payer)
-	//defer db.Close()
+	tmpl.ExecuteTemplate(w, "index", payer)
 }
 
 func Show(w http.ResponseWriter, r *http.Request) {
-	nId := r.URL.Query().Get("id")
+	nId := r.URL.Query().Get("Id")
 	input, _ := strconv.Atoi(nId)
 	var searchType = "PayerId"
 	payer, err := searchResultPayer(searchType, "", input)
 	if err != nil {
 		panic(err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "Show", payer)
+	tmpl.ExecuteTemplate(w, "show", payer)
 	//defer db.Close()
 }
 
 func New(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "New", nil)
+	tmpl.ExecuteTemplate(w, "new", nil)
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
@@ -123,11 +129,11 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err.Error())
 	}
-	tmpl.ExecuteTemplate(w, "Edit", payer)
+	tmpl.ExecuteTemplate(w, "edit", payer)
 	//defer db.Close()
 }
 
-var validPath = regexp.MustCompile("^/(edit|view|error|coal-mine)/([a-zA-Z0-9]+)$")
+var validPath = regexp.MustCompile("^/(edit|view|error|payer|coal-mine)/([a-zA-Z0-9]+)$")
 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -140,113 +146,144 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 	}
 }
 
-const (
-	//host = "localhost"
-	host     = "localhost"
-	port     = 5432
-	user     = "newuser"
-	password = "password"
-	dbname   = "payer"
-)
+// Error handling types
+
+type errRepoNotInitialized string
+
+func (e errRepoNotInitialized) Error() string {
+	return string(e)
+}
+
+type errRepoNotFound string
+
+func (e errRepoNotFound) Error() string {
+	return string(e)
+}
+
+func parseParams(req *http.Request, prefix string, num int) ([]string, error) {
+	url := strings.TrimPrefix(req.URL.Path, prefix)
+	params := strings.Split(url, "/")
+	if len(params) != num || len(params[0]) == 0 {
+		return nil, fmt.Errorf("Bad format. %d Expecting exactly %d params", len(params), num)
+	}
+	return params, nil
+}
+
+// repoHandler processes the response by parsing the params, then calling
+func payerHandler(w http.ResponseWriter, req *http.Request) {
+	//repo := Payer{}
+	params, err := parseParams(req, "/payer/", 1)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusUnauthorized)
+		return
+	}
+
+	i, err := strconv.Atoi(params[0])
+	if err != nil {
+		http.Error(w, err.Error(), 404)
+	}
+
+	var searchType = "PayerId"
+	var name = ""
+	data, err := searchResultPayer(searchType, name, i)
+	if err != nil {
+		switch err.(type) {
+		case errRepoNotFound:
+			http.Error(w, err.Error(), 404)
+		case errRepoNotInitialized:
+			http.Error(w, err.Error(), 401)
+		default:
+			http.Error(w, err.Error(), 500)
+		}
+		return
+	}
+
+	out, err := json.Marshal(data)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	fmt.Fprintf(w, string(out))
+}
 
 func main() {
-	/*
-
-		var searchType = "PayerId"
-		var name = "Anthem Empire BlueCross BlueShield"
-		var i2 = 140
-		//payerInfo := buildSql("Anthem Empire BlueCross BlueShield")
-		var payer []Payer
-		payer, err := searchResultPayer(searchType, name, i2)
-
-		if nil == err {
-			fmt.Println(payer[0].payerId)
-			for i := range payer[1:] {
-				fmt.Println(payer[i].payerId)
-			}
-		}
-
-		searchType = "PayerName"
-		name = "Anthem Empire BlueCross BlueShield"
-		i2 = 140
-		//payerInfo := buildSql("Anthem Empire BlueCross BlueShield")
-		//payer []Payer
-		payer2, err2 := searchResultPayer(searchType, name, i2)
-
-		if nil == err2 {
-			fmt.Println(payer2[0].payerId)
-			for i := range payer2[1:] {
-				fmt.Println(payer2[i].payerId)
-			}
-		}
-
-		var searchType3 = "PlanId"
-		var planId = 17629
-		plan, err := searchResultPlan(searchType3, "", planId)
-		if nil == err {
-			//fmt.Println(plan)
-			for i := range plan {
-				fmt.Println(plan[i])
-			}
-		}
-		if nil != err {
-			fmt.Println("error")
-			fmt.Println(err)
-		}
-		if planId == plan[0].planId {
-			fmt.Println("id " + strconv.Itoa(planId) + " matched expection id from DB " + strconv.Itoa(plan[0].planId))
-		}
-
-		var searchType6 = "PlanPayerId"
-		var planPayerId = 140
-		plan2, err2 := searchResultPlan(searchType6, "", planPayerId)
-		if nil == err {
-			//fmt.Println(plan)
-			for i := range plan2 {
-				fmt.Println(plan2[i])
-			}
-		}
-		if nil != err2 {
-			fmt.Println(err2)
-		}
-		if planPayerId == plan2[0].payerId {
-			fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan[0].payerId))
-		}
-
-		searchType = "PlanName"
-		var planName = "Blue Access"
-		plan3, err3 := searchResultPlan(searchType, planName, 0)
-		if nil == err {
-			//fmt.Println(plan)
-			for i := range plan3 {
-				fmt.Println(plan3[i])
-			}
-		}
-		if nil != err3 {
-			fmt.Println(err)
-		}
-		if planName == plan3[0].planName {
-			fmt.Println("input " + planName + " matches expected from DB " + plan3[0].planName)
-		}
-
-		fmt.Println("Successfully done!")
-	*/
-
 	//var tmpl = template.Must(template.ParseGlob("*.tmpl"))
+	// func run() error {
+	// 	info, err := pkger.Stat("./template/*")
+	// 	if err != nil {
+	// 		return err
+	// 	}
 
+	// fmt.Println("Name: ", info.Name())
+	// fmt.Println("Size: ", info.Size())
+
+	// Tell pkger that it has to package that directory.
+	//dir := pkger.Include("/templates")
+	// Only compile templates on startup.
+	//tpl, _ := compileTemplates(dir)
+	//fmt.Println(tpl)
+
+	// //box := packr.NewBox("/templates")
+	// t, err := template.New("hello").Parse(box.String("hello.txt"))
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// err = t.Execute(os.Stdout, "world")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	initDb()
+	defer db.Close()
+
+	var searchType = "PayerId"
+	var name = ""
+	var i2 = 140
+	var payer []Payer
+	payer, err := searchResultPayer(searchType, name, i2)
+	if nil == err {
+		//fmt.Println(plan)
+		for i := range payer {
+			fmt.Println(payer[i])
+		}
+	}
+	if nil != err {
+		fmt.Println(err)
+	}
+
+	searchType = "PlanPayerId"
+	var planPayerId = 140
+	plan2, err2 := searchResultPlan(searchType, "", planPayerId)
+	if nil == err {
+		//fmt.Println(plan)
+		for i := range plan2 {
+			fmt.Println(plan2[i])
+		}
+	}
+	if nil != err2 {
+		fmt.Println(err2)
+	}
+	if planPayerId == plan2[0].payerId {
+		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].payerId))
+	}
+
+	//http.HandleFunc("/api/index", indexHandler)
 	http.HandleFunc("/coal-mine/", coalmineHandler)
-	http.HandleFunc("/error/", errorHandler)
-	//http.HandleFunc("/view/", makeHandler(viewHandler))
-	//http.HandleFunc("/edit/", makeHandler(editHandler))
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	http.HandleFunc("/payer/", payerHandler)
+	log.Fatal(http.ListenAndServe("localhost:8001", nil))
 
-	log.Println("Server started on: http://localhost:8080")
-	http.HandleFunc("/", Index)
-	http.HandleFunc("/show", Show)
-	http.HandleFunc("/new", New)
-	http.HandleFunc("/edit", Edit)
+	// log.Println("Server started on: http://localhost:8081")
+	// http.HandleFunc("/coal-mine/", coalmineHandler)
+	// http.HandleFunc("/error/", errorHandler)
+	// http.HandleFunc("/", Index)
+	// http.HandleFunc("/show", Show)
+	// http.HandleFunc("/new", New)
+	// http.HandleFunc("/edit", Edit)
+
 	//http.HandleFunc("/insert", Insert)
 	//http.HandleFunc("/update", Update)
 	//http.HandleFunc("/delete", Delete)
-	http.ListenAndServe(":8080", nil)
+	//http.ListenAndServe(":8080", nil)
+	//log.Fatal(http.ListenAndServe(":8081", nil))
+
 }

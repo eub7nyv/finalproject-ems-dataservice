@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	//"github.com/markbates/pkger"
+)
+
+const (
+	host     = "localhost"
+	port     = 5432
+	user     = "newuser"
+	password = "password"
+	dbname   = "payer"
+)
+
+func main() {
+	if err := run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func run() error {
+	//info, err := pkger.Stat("/public/index.html")
+	info, err := ioutil.ReadFile("Index.tmpl")
+	if err != nil {
+		return err
+	}
+	fmt.Println(info)
+	return nil
+}

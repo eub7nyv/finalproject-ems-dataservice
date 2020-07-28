@@ -25,7 +25,7 @@ This is licensed under Apache-2.0.
 
 
 # local run command: 
-go build dataservice/app.go dataservice/payer.go  dataservice/app_test.go dataservice/payer_test.go
+go install -v dataservice/app.go dataservice/payer.go  dataservice/app_test.go dataservice/payer_test.go
 
 ./app
 
