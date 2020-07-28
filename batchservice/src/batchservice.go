@@ -34,6 +34,7 @@ var (
 	ErrorLogger   *log.Logger
 )
 
+// new message struct
 type Message struct {
 	Appname string `jason:"appName"`
 	Message string `json:"incomingMessage"`
