@@ -23,7 +23,7 @@ COPY . .
 #RUN go build -o app .
 RUN ./scripts/build.sh './dataservice'
 
-# Expose port 8086 to the outside world
+# Expose port 8001 to the outside world
 EXPOSE 8001
 
 # Command to run the executable

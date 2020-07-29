@@ -1,18 +1,6 @@
 version: "3.1"
 
 services:
-  #  dataservice:
-  #   container_name: full_dataservice
-  #   build: './'
-  #   stdin_open: true
-  #   tty: true
-  #   environment:
-  #     GO_ID: docker-compose-dataservice
-  #   ports: 8001
-  #   networks:
-  #     - kafka
-      #version: "3.1"
-
   app:  
     build: './'
     stdin_open: true
@@ -22,26 +10,24 @@ services:
     depends_on:
        - db
     env_file:
-      - .env
+     - .env
+   # environment:
+   #   - DBUSER=${DBUSER}  
+   #   - DBPASS=${DBPASS}
+   #   - DBNAME=${DBNAME}
+   #   - DBHOST=${DBHOST} 
     networks:
       - kafka
   
   db:
     image: postgres:latest
-    #container_name: full_db_postgres
     env_file:
       - .env
     environment:
-      #- POSTGRES_USER=${DBUSER}  
-      #- POSTGRES_PASSWORD=${DBPASSWORD}
-      #- POSTGRES_DB=${DBNAME}
-      #- DATABASE_HOST=${DBHOST} 
-      - POSTGRES_USER=newuser 
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=payer
-      #- DATABASE_HOST=db
-    #ports:
-    #  - '5432:5432'
+      - POSTGRES_USER=${DBUSER}  
+      - POSTGRES_PASSWORD=${DBPASS}
+      - POSTGRES_DB=${DBNAME}
+      - DATABASE_HOST=${DBHOST} 
     #volumes:
     #  - database_postgres:/var/lib/postgresql/data
     networks:
