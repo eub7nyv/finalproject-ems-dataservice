@@ -23,7 +23,7 @@ const (
 )
 
 func initDb() {
-	errnew := godotenv.Load(".env")
+	errnew := godotenv.Load("db.env")
 	if nil != errnew {
 		log.Fatal(errnew)
 	}

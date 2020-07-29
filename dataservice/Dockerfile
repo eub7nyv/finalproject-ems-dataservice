@@ -1,50 +1,30 @@
-#
-# Licensed to the Apache Software Foundation (ASF) under one or more
-# contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 
-#
-# @see https://docs.docker.com/develop/develop-images/multistage-build/
-#
+# Start from the latest golang base image
+FROM golang:latest
 
-# GLOBAL ARG values
-# @see https://github.com/moby/moby/issues/37345
-# ARG PROJECT_PATH="https://github.com/sxie2008/finalproject-ems-dataservice/tree/master/dataservice"
+# Add Maintainer Info
+LABEL maintainer="Shelly Xie <sxie2008@gmail.com>"
+
+# Set the Current Working Directory inside the container
 ARG PROJECT_PATH="dataservice"
 ARG OUT_FILE_NAME=app
+WORKDIR /dataservice
 
-# @see https://hub.docker.com/_/golang
-ARG GOLANG_VERSION=1.14
-FROM golang:${GOLANG_VERSION} AS builder
-ARG PROJECT_PATH
-ARG OUT_FILE_NAME
-ENV OUT_FILE_NAME=${OUT_FILE_NAME}
-WORKDIR /go/src/${PROJECT_PATH}/
+# Copy go mod and sum files
+COPY go.mod go.sum ./
+
+# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
+RUN go mod download
+
+# Copy the source from the current directory to the Working Directory inside the container
 COPY . .
+
+# Build the Go app
+#RUN go build -o app .
 RUN ./scripts/build.sh './dataservice'
 
-FROM alpine:latest
-ARG PROJECT_PATH
-ARG OUT_FILE_NAME
+# Expose port 8086 to the outside world
+EXPOSE 8001
 
-# ENV OUT_FILE_NAME=${OUT_FILE_NAME}
-# if you have to modify ${OUT_FILE_NAME} update this manually
-# There are some oddities about passing params to `sh -c` commands
-# and that is the only way to use the ENV variable
-ENTRYPOINT ["./app"]
-WORKDIR /runnable
-COPY --from=builder /go/src/${PROJECT_PATH}/${OUT_FILE_NAME} .
-RUN apk -U --no-cache add ca-certificates && \
-    chmod +x ${OUT_FILE_NAME}
+# Command to run the executable
+CMD ["./app"]

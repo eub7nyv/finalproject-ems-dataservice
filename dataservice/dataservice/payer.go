@@ -72,16 +72,13 @@ func searchResultPlan(searchName string, name string, id int) (resultSet []Plan,
 		//err = nil
 	case nil:
 		defer rows.Close()
-		//var i = 0
 		for rows.Next() {
 			var plan Plan
 			err = rows.Scan(&plan.Id, &plan.PayerId, &plan.PlanId, &plan.PlanName, &plan.Segment, &plan.PlanType, &plan.Ppo, &plan.Hmo, &plan.Pos)
 			if err != nil {
 				panic(err)
 			}
-			//fmt.Println(plan)
 			result = append(result, plan)
-			//	i++
 		}
 	default:
 		panic(err)

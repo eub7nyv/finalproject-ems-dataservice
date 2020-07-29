@@ -3,10 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"html/template"
 	"io/ioutil"
 	"net/http"
-	"regexp"
 	"strconv"
 	"strings"
 
@@ -57,15 +55,15 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 */
 
 //var templates = template.Must(template.ParseFiles("Index.tmpl", "Show.tmpl", "New.tmpl", "Edit.tmpl"))
-var (
-	templates = template.Must(template.ParseFiles("Index.tmpl"))
-)
+//var (
+//	templates = template.Must(template.ParseFiles("Index.tmpl"))
+//)
 
 //var templates = template.Must(template.ParseFiles("editTemplate.html", "viewTemplate.html"))
 
 //var templates = template.Must(template.ParseFiles("template/viewTemplate.tmpl"))
-/*
 
+/*
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 	//var tmpl1 = tmpl + ".tmpl"
 	err := templates.ExecuteTemplate(w, tmpl, p)
@@ -74,7 +72,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
-*/
+
 
 var tmpl = template.Must(template.ParseGlob("*.tmpl"))
 
@@ -129,6 +127,13 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 		fn(w, r, m[2])
 	}
 }
+*/
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()         // Parses the request body
+	x := r.Form.Get("id") // x will be "" if parameter is not set
+	fmt.Println("test parameter" + x)
+}
 
 // Error handling types
 
@@ -171,6 +176,12 @@ func payerHandler(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		http.Error(w, err.Error(), 404)
 	}
+
+	// req.ParseForm()          // Parses the request body
+	// id := req.Form.Get("id") // x will be "" if parameter is not set
+	// name := req.Form.Get("name")
+	// fmt.Println("test parameter" + id)
+	// fmt.Println("test parameter" + name)
 
 	var searchType = "PayerId"
 	data, err := searchResultPayer(searchType, "", i)

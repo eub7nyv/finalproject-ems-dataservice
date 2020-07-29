@@ -38,8 +38,8 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 
-	initDb()
-	defer db.Close()
+	//initDb()
+	//defer db.Close()
 
 	var searchType = "PayerId"
 	var name = ""
@@ -72,8 +72,11 @@ func main() {
 		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].PayerId))
 	}
 
+	http.HandleFunc("/payer/", handler)
+
 	http.HandleFunc("/coal-mine/", coalmineHandler)
-	http.HandleFunc("/payer/", payerHandler)
+	//http.HandleFunc("/payer/", payerHandler)
+	//http.HandleFunc("/payer/", payerHandler)
 	http.HandleFunc("/plan/", planHandler)
 	http.HandleFunc("/pharmacy/", pharmacyHandler)
 	log.Fatal(http.ListenAndServe("localhost:8001", nil))
@@ -86,5 +89,4 @@ func main() {
 	// http.HandleFunc("/edit", Edit)
 	//http.ListenAndServe(":8080", nil)
 	//log.Fatal(http.ListenAndServe(":8081", nil))
-
 }

@@ -1,17 +1,69 @@
-version: '3'
+version: "3.1"
 
 services:
-  postgresql:
-    image: postgres
-    container_name: pg-docker
-    network_mode: my-net
+  #  dataservice:
+  #   container_name: full_dataservice
+  #   build: './'
+  #   stdin_open: true
+  #   tty: true
+  #   environment:
+  #     GO_ID: docker-compose-dataservice
+  #   ports: 8001
+  #   networks:
+  #     - kafka
+      #version: "3.1"
+
+  app:  
+    build: './'
+    stdin_open: true
+    tty: true
     ports:
-      - "5400:5432"
+      - 9898:8001
+    depends_on:
+       - db
+    env_file:
+      - db.env
+    networks:
+      - kafka
+  
+  db:
+    image: postgres:latest
+    #container_name: full_db_postgres
+    env_file:
+      - db.env
     environment:
-      - POSTGRES_DB=dataservice
-      - POSTGRES_USER=newuser
+     # - POSTGRES_USER=${DB_USER}  
+      #- POSTGRES_PASSWORD=${DB_PASSWORD}
+      # POSTGRES_DB=${DB_NAME}
+      #- DATABASE_HOST=${DB_HOST} 
+      - POSTGRES_USER=newuser 
       - POSTGRES_PASSWORD=password
-    volumes:
-      - ./postgres.conf:/etc/postgresql/postgresql.conf
-    ##command: postgres -c config_file=/etc/postgresql/postgresql.conf
-    restart: always
+      - POSTGRES_DB=payer
+      #- DATABASE_HOST=172.26.0.1
+      #- DATABASE_HOST=localhost
+    #ports:
+    #  - '5432:5432'
+    #volumes:
+    #  - database_postgres:/var/lib/postgresql/data
+    networks:
+      - kafka
+    
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin_container
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+  #   depends_on:
+  #     - dbpostgresql
+  #   ports:
+  #     - "5050:80"
+  #   networks:
+  #     -  kafka
+  #   restart: unless-stopped
+
+networks:
+  kafka:
+    #external:
+    #name: dockerized-kafka_kafka 
+      #driver: bridge

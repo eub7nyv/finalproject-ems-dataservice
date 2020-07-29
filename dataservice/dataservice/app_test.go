@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestMain(t *testing.T) {
-	main()
+	//main()
+	fmt.Println("hello test")
 }
