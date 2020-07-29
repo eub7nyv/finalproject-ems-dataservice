@@ -4,8 +4,7 @@ import com.mckesson.producer.entities.Message;
 import com.mckesson.producer.services.KafkaProducer;
 import com.mckesson.producer.utilities.Utilities;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
  *
  */
 
+@Slf4j
 @RestController
 public class MckessonController {
 
-    private static final Logger log = LoggerFactory.getLogger(MckessonController.class);
 
     @Autowired
     private KafkaProducer kafkaProducer;
@@ -36,12 +35,11 @@ public class MckessonController {
     public void produce(@RequestBody Message message) {
 
         String streamingPlatform = Utilities.environmentOrDefault("STREAMING_PLATFORM", "KAFKA");
-        log.info("Streaming message Platform :::::: "+streamingPlatform);
+        log.info("Streaming message Platform :::::: {}",streamingPlatform);
 
         if (streamingPlatform.equals("KAFKA")) {
             kafkaProducer.sendMessage(message);
-            log.info("Message Recieved:::::   " + "Topic Name:::" + message.getAppName() + "Incoming Message: "
-                    + message.getIncomingMessage());
+            log.info("Message Recieved:::::  Topic Name::: {}.....Incoming Message: {}" ,message.getAppName(), message.getIncomingMessage());
         } else if (streamingPlatform.equals("RABBIT")) {
             // TODO : Phase 2, Rabbit implimentation
 
