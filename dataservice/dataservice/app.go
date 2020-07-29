@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strconv"
 
 	//_ "github.com/gobuffalo/packr"
 
@@ -38,8 +37,8 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 
-	//initDb()
-	//defer db.Close()
+	initDb()
+	defer db.Close()
 
 	var searchType = "PayerId"
 	var name = ""
@@ -55,38 +54,29 @@ func main() {
 	if nil != err {
 		fmt.Println(err)
 	}
-
-	searchType = "PlanPayerId"
-	var planPayerId = 140
-	plan2, err2 := searchResultPlan(searchType, "", planPayerId)
-	if nil == err {
-		//fmt.Println(plan)
-		for i := range plan2 {
-			fmt.Println(plan2[i])
+	/*
+		searchType = "PlanPayerId"
+		var planPayerId = 140
+		plan2, err2 := searchResultPlan(searchType, "", planPayerId)
+		if nil == err {
+			//fmt.Println(plan)
+			for i := range plan2 {
+				fmt.Println(plan2[i])
+			}
 		}
-	}
-	if nil != err2 {
-		fmt.Println(err2)
-	}
-	if planPayerId == plan2[0].PayerId {
-		fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].PayerId))
-	}
-
-	http.HandleFunc("/payer/", handler)
+		if nil != err2 {
+			fmt.Println(err2)
+		}
+		if planPayerId == plan2[0].PayerId {
+			fmt.Println("input " + strconv.Itoa(planPayerId) + " matches expected from DB " + strconv.Itoa(plan2[0].PayerId))
+		}
+	*/
 
 	http.HandleFunc("/coal-mine/", coalmineHandler)
-	//http.HandleFunc("/payer/", payerHandler)
-	//http.HandleFunc("/payer/", payerHandler)
+	http.HandleFunc("/payer/", payerHandler)
 	http.HandleFunc("/plan/", planHandler)
 	http.HandleFunc("/pharmacy/", pharmacyHandler)
-	log.Fatal(http.ListenAndServe("localhost:8001", nil))
 
-	// log.Println("Server started on: http://localhost:8081")
-	// http.HandleFunc("/error/", errorHandler)
-	// http.HandleFunc("/", Index)
-	// http.HandleFunc("/show", Show)
-	// http.HandleFunc("/new", New)
-	// http.HandleFunc("/edit", Edit)
 	//http.ListenAndServe(":8080", nil)
-	//log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(http.ListenAndServe(":8001", nil))
 }

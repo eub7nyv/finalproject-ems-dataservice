@@ -3,11 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"log"
 	"os"
 
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"github.com/joho/godotenv"
 
 	_ "github.com/lib/pq"
 )
@@ -23,10 +21,16 @@ const (
 )
 
 func initDb() {
-	errnew := godotenv.Load("db.env")
-	if nil != errnew {
-		log.Fatal(errnew)
-	}
+	//errnew := godotenv.Load("db.env")
+	//if nil != errnew {
+	//	log.Fatal(errnew)
+	//}
+
+	//var host = os.Getenv(dbuser)
+	//if host == "" {
+	//	panic("DBHOST environment variable required but not set")
+	//}
+
 	config := dbConfig()
 	var err error
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s "+

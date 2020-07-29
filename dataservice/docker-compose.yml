@@ -22,7 +22,7 @@ services:
     depends_on:
        - db
     env_file:
-      - db.env
+      - .env
     networks:
       - kafka
   
@@ -30,17 +30,16 @@ services:
     image: postgres:latest
     #container_name: full_db_postgres
     env_file:
-      - db.env
+      - .env
     environment:
-     # - POSTGRES_USER=${DB_USER}  
-      #- POSTGRES_PASSWORD=${DB_PASSWORD}
-      # POSTGRES_DB=${DB_NAME}
-      #- DATABASE_HOST=${DB_HOST} 
+      #- POSTGRES_USER=${DBUSER}  
+      #- POSTGRES_PASSWORD=${DBPASSWORD}
+      #- POSTGRES_DB=${DBNAME}
+      #- DATABASE_HOST=${DBHOST} 
       - POSTGRES_USER=newuser 
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=payer
-      #- DATABASE_HOST=172.26.0.1
-      #- DATABASE_HOST=localhost
+      #- DATABASE_HOST=db
     #ports:
     #  - '5432:5432'
     #volumes:
@@ -48,20 +47,6 @@ services:
     networks:
       - kafka
     
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   container_name: pgadmin_container
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-  #   depends_on:
-  #     - dbpostgresql
-  #   ports:
-  #     - "5050:80"
-  #   networks:
-  #     -  kafka
-  #   restart: unless-stopped
-
 networks:
   kafka:
     #external:

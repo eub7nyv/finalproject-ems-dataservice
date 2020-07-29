@@ -2,9 +2,7 @@ package main
 
 import (
 	"database/sql"
-	"errors"
 	"fmt"
-	"strings"
 
 	_ "github.com/lib/pq"
 )
@@ -29,19 +27,19 @@ type Plan struct {
 	Pos      string `json:"pos"`
 }
 
-type PayerPlan struct {
-	payer Payer
-	plans []Plan
-}
+// type PayerPlan struct {
+// 	payer Payer
+// 	plans []Plan
+// }
 
-// check string if needed
-func checkArgs(args []string, del string, fieldLen int) (err error) {
-	fmt.Printf("[DEBUG] Checking paramters: '%s'\n", strings.Join(args, del))
-	if fieldLen != len(args) {
-		err = errors.New(" Invalid field field")
-	}
-	return
-}
+// // check string if needed
+// func checkArgs(args []string, del string, fieldLen int) (err error) {
+// 	fmt.Printf("[DEBUG] Checking paramters: '%s'\n", strings.Join(args, del))
+// 	if fieldLen != len(args) {
+// 		err = errors.New(" Invalid field field")
+// 	}
+// 	return
+// }
 
 func buildSql(sqltype string, name string, id int) string {
 	switch sqltype {
