@@ -13,47 +13,42 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumer {
 
-    private final static Logger log = LoggerFactory.getLogger(KafkaConfiguration.class);
+	private final static Logger log = LoggerFactory.getLogger(KafkaConfiguration.class);
 
-    @Autowired
-    ConsumerService consumerService;
+	@Autowired
+	ConsumerService consumerService;
 
+	@KafkaListener(topics = ConsumerConstants.TOPIC_TIME_TOPIC, groupId = ConsumerConstants.DOCKER_COMPOSE_CONSUMER)
+	public String consumerExample(String message) {
+		System.out.println("<<<<<< message >>>>" + message);
+		String statusMessage = consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_TIME_TOPIC, message);
+		System.out.println("<<<<<< Status Message From Service >>>>" + statusMessage);
+		return statusMessage;
+	}
 
-       @KafkaListener(topics="time-topic" , groupId = "docker-compose-consumer")
-       public String  consumerExample(String message){
-    	System.out.println("<<<<<< message >>>>"+message);
-        String statusMessage= consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_TIME_TOPIC, message);
-        System.out.println("<<<<<< Status Message From Service >>>>"+statusMessage);
-        return statusMessage;
-       }
+	@KafkaListener(topics = ConsumerConstants.TOPIC_DRG_PAYER, groupId = ConsumerConstants.DOCKER_COMPOSE_CONSUMER)
+	public String consumerDRGPayerData(String message) {
+		log.info("Inside  consumerDRGPayerData >>>>" + message);
+		System.out.println("<<<<<< message >>>>" + message);
+		System.out.println("<<<<<< Status consumerDRGPayerData From Service >>>>" + message);
+		String statusMessage = consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_DRG_PAYER, message);
+		System.out.println("<<<<<< Status Message From Service >>>>" + statusMessage);
+		return statusMessage;
+	}
 
-        @KafkaListener(topics="drgpayer" , groupId = "docker-compose-consumer")
-        public String consumerDRGPayerData(String message){
-            log.info("Inside  consumerDRGPayerData >>>>"+message);
-            System.out.println("<<<<<< message >>>>"+message);
-            System.out.println("<<<<<< Status consumerDRGPayerData From Service >>>>"+message);
-            String statusMessage= consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_DRG_PAYER, message);
-            System.out.println("<<<<<< Status Message From Service >>>>"+statusMessage);
-            return statusMessage;
-        }
+	@KafkaListener(topics = ConsumerConstants.TOPIC_DRG_PLAN, groupId = ConsumerConstants.DOCKER_COMPOSE_CONSUMER)
+	public String consumerDRGPlanData(String message) {
+		log.info("Inside  consumerDRGPayerData >>>>" + message);
+		String statusMessage = consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_DRG_PLAN, message);
+		System.out.println("<<<<<< Status Message From Service >>>>" + statusMessage);
+		return message;
+	}
 
-
-        @KafkaListener(topics="drgplan" , groupId = "docker-compose-consumer")
-        public String consumerDRGPlanData(String message){
-            log.info("Inside  consumerDRGPayerData >>>>"+message);
-            String statusMessage= consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_DRG_PLAN, message);
-            System.out.println("<<<<<< Status Message From Service >>>>"+statusMessage);
-            return message;
-        }
-
-
-        @KafkaListener(topics="ncpdp" , groupId = "docker-compose-consumer")
-        public String consumerNdpDpData(String message){
-        	String statusMessage= consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_NCPDP, message);
-        	System.out.println("<<<<<< Status Message From Service >>>>"+statusMessage);
-            return message;
-        }
-
-
+	@KafkaListener(topics = ConsumerConstants.TOPIC_NCPDP, groupId = ConsumerConstants.DOCKER_COMPOSE_CONSUMER)
+	public String consumerNdpDpData(String message) {
+		String statusMessage = consumerService.callDataServiceAPI(ConsumerConstants.TOPIC_NCPDP, message);
+		System.out.println("<<<<<< Status Message From Service >>>>" + statusMessage);
+		return message;
+	}
 
 }
