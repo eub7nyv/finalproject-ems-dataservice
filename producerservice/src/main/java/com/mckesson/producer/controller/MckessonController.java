@@ -39,7 +39,7 @@ public class MckessonController {
 
         if (streamingPlatform.equals("KAFKA")) {
             kafkaProducer.sendMessage(message);
-            log.info("Message Recieved:::::  Topic Name::: {}.....Incoming Message: {}" ,message.getAppName(), message.getIncomingMessage());
+            log.info("Message Recieved With Application Name===> {} & Incoming Message====> {}" ,message.getAppName(), message.getIncomingMessage());
         } else if (streamingPlatform.equals("RABBIT")) {
             // TODO : Phase 2, Rabbit implimentation
 

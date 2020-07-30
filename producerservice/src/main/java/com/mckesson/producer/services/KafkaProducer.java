@@ -8,6 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFutureCallback;
+import org.springframework.kafka.support.SendResult;
+
+import org.springframework.lang.NonNull;
 
 /**
  * @author anoopunnikrishnan
@@ -42,14 +46,26 @@ public class KafkaProducer {
                     break;
 
             }
+            if(StringUtils.isNotBlank(KAFKA_TOPIC) && StringUtils.isNotBlank(message.getIncomingMessage())){
 
-            if(StringUtils.isNotBlank(KAFKA_TOPIC)){
+                final String kafkatopic=KAFKA_TOPIC;
+                final String msg=message.getIncomingMessage();
 
-                this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage());
-                log.info("Message Recieved......   Topic Name::: {} Incoming Message:{} ", KAFKA_TOPIC, message.getIncomingMessage());
-                       
+                this.kafkaTemplate.send(KAFKA_TOPIC, message.getIncomingMessage())
+                .addCallback(
+                    new ListenableFutureCallback<SendResult<String, String>>() {
+                      @Override
+                      public void onFailure(@NonNull Throwable throwable) {
+                        log.warn("Failed to send the message to Topic ===> {}  & the  Message send is ===> {} ",  kafkatopic,  msg, throwable);
+                      }
+          
+                      @Override
+                      public void onSuccess(SendResult<String, String> objectObjectSendResult) {
+                        log.info("Message Send Successfully to Topic ===> {}  & the  Message send is ===> {} ", kafkatopic,  msg);
+                      }
+                    });
             }else {
-                log.error("Failed to send the message....The Application is not supported...........");
+                log.error("Failed to send the message....<Requested Application is not supported by this messaging service>");
             }
         }
 
