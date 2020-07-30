@@ -9,7 +9,7 @@ From the root dir:
 `./scripts/build.sh ./dataservice`
 
 ## Build docker image, put it in the same network as Postgres
-`docker build -t 'dataservice:latest' . --network=my-net
+`docker build -t 'dataservice:latest' . --network=kafka
 
 ## Run it...
 `docker run --rm dataservice:latest <action> <initial value> <values...>`
@@ -27,8 +27,10 @@ This is licensed under Apache-2.0.
 # local run command: 
 go install -v dataservice/app.go dataservice/payer.go  dataservice/app_test.go dataservice/payer_test.go
 
-./app
 
+go build -v dataservice/app.go dataservice/payer.go  dataservice/app_test.go dataservice/payer_test.go dataservice/db.go dataservice/pharmacy.go dataservice/handler.go dataservice/pharmacy_test.go
+
+./app
 
 
 

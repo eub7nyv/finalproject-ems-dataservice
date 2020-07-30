@@ -11,11 +11,6 @@ services:
        - db
     env_file:
      - .env
-   # environment:
-   #   - DBUSER=${DBUSER}  
-   #   - DBPASS=${DBPASS}
-   #   - DBNAME=${DBNAME}
-   #   - DBHOST=${DBHOST} 
     networks:
       - kafka
   
