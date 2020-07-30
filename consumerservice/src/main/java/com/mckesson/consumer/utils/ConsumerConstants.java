@@ -9,6 +9,6 @@ public interface ConsumerConstants {
 	public static final String SUCCESS_MESSAGE="Data Saved Sucefully";
 	public static final String TOPIC_TIME_TOPIC="time-topic";
 	public static final String REST_API_URL="http://dataservice:9897/mckesson/saveConsumerData";
-
+    public static final String DOCKER_COMPOSE_CONSUMER= "docker-compose-consumer";
 
 }
