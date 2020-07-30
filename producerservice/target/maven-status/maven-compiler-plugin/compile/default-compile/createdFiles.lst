@@ -1,0 +1,6 @@
+com\mckesson\producer\MckessonProducerApplication.class
+com\mckesson\producer\controller\MckessonController.class
+com\mckesson\producer\entities\Message.class
+com\mckesson\producer\services\KafkaProducer.class
+com\mckesson\producer\config\KafkaConfiguration.class
+com\mckesson\producer\utilities\Utilities.class
