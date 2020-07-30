@@ -23,7 +23,7 @@ services:
     ports: 
       - 8085:8081
     env_file:
-      - kafka.env
+      - producer.env
     environment:
       PRODUCER_ID: docker-compose-producer
     networks:
