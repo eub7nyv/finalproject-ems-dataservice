@@ -1,0 +1,4 @@
+[
+    {"Filepath":"../incoming_files/","Filepattern":"drg*.txt","Appname":"drg","Ignorehdr":"N","Fileformat":"json"},
+    {"Filepath1":"../incoming_files/","Filepattern":"drg*.txt","Appname":"drg","Ignorehdr":"N","Fileformat":"json"}
+    ]
