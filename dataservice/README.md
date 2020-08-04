@@ -35,7 +35,7 @@ go build -v dataservice/app.go dataservice/payer.go  dataservice/app_test.go dat
 
 
 ## Postgres Log to see if server is OK. if below exists, run command to resolve it
-OXC02XJ0BMJGH8:fullstack shelly.xie@mckesson.com$ tail -n 10 /usr/local/var/log/postgres.log
+OXC02XJ0BMJGH8:fullstack  ****** $ tail -n 10 /usr/local/var/log/postgres.log
 2020-07-22 19:06:24.180 MST [11997] FATAL:  lock file "postmaster.pid" already exists
 2020-07-22 19:06:24.180 MST [11997] HINT:  Is another postmaster (PID 817) running in data directory "/usr/local/var/postgres"?
 
